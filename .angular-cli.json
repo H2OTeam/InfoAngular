@@ -1,0 +1,72 @@
+{
+ "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+ "project": {
+  "name": "tedushop-angular2"
+ },
+ "apps": [{
+  "root": "src",
+  "outDir": "dist",
+  "assets": [
+   "assets",
+   "favicon.ico"
+  ],
+  "index": "index.html",
+  "main": "main.ts",
+  "polyfills": "polyfills.ts",
+  "test": "test.ts",
+  "tsconfig": "tsconfig.app.json",
+  "testTsconfig": "tsconfig.spec.json",
+  "prefix": "app",
+  "styles": [
+   "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+   "../src/assets/css/flexslider.css",
+   "../src/assets/css/style.css",
+   "../src/assets/css/font-awesome.css",
+   "../node_modules/alertifyjs/build/css/alertify.css",
+   "../node_modules/alertifyjs/build/css/themes/default.css",
+   "styles.css"
+  ],
+  "scripts": [
+   "../src/assets/js/jquery-2.1.4.min.js",
+   "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+   "../src/assets/js/SmoothScroll.min.js",
+   "../src/assets/js/move-top.js",
+   "../src/assets/js/easing.js",
+   "../src/assets/js/responsiveslides.min.js",
+   "../src/assets/js/simplePlayer.js",
+   "../src/assets/js/waypoints.min.js",
+   "../src/assets/js/counterup.min.js",
+   "../src/assets/js/jquery.flexslider.js",
+   "../node_modules/alertifyjs/build/alertify.js"
+  ],
+  "environmentSource": "environments/environment.ts",
+  "environments": {
+   "dev": "environments/environment.ts",
+   "prod": "environments/environment.prod.ts"
+  }
+ }],
+ "e2e": {
+  "protractor": {
+   "config": "./protractor.conf.js"
+  }
+ },
+ "lint": [{
+   "project": "src/tsconfig.app.json"
+  },
+  {
+   "project": "src/tsconfig.spec.json"
+  },
+  {
+   "project": "e2e/tsconfig.e2e.json"
+  }
+ ],
+ "test": {
+  "karma": {
+   "config": "./karma.conf.js"
+  }
+ },
+ "defaults": {
+  "styleExt": "css",
+  "component": {}
+ }
+}
