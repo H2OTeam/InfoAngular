@@ -38,7 +38,6 @@ export class MainComponent implements OnInit {
   }
   private loadContact() {
     this._dataService.getNotAuth('api/v1/Contacts').subscribe((response: object) => {
-      debugger;
       this.contact = response;
     }, error => this._dataService.handleError(error));
   }
