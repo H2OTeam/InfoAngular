@@ -38,7 +38,7 @@ export class FunctionComponent implements OnInit {
     }, error => this._dataService.handleError(error));
   }
   public showPermission(id: any) {
-    this._dataService.get('permission?functionId=' + id).subscribe((response: any[]) => {
+    this._dataService.get('permission/' + id).subscribe((response: any[]) => {
       this.functionId = id;
       this._permission = response;
       this.permissionModal.show();
@@ -47,12 +47,8 @@ export class FunctionComponent implements OnInit {
   }
 
   public savePermission(valid: boolean, _permission: any[]) {
-    if (valid) {
-      var data = {
-        Permissions: this._permission,
-        FunctionId: this.functionId
-      }
-      this._dataService.post('SavePermission', data).subscribe((response: any) => {
+    if (valid) { 
+      this._dataService.post('permission/'+ this.functionId,  this._permission).subscribe((response: any) => {
         this.notificationService.printSuccessMessage(response);
         this.permissionModal.hide();
       }, error => this._dataService.handleError(error));

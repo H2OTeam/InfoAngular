@@ -162,7 +162,7 @@
                         <thead>
                             <tr>
                                 <th>
-                                    Tên quyền
+                                    User
                                 </th>
                                 <th>
                                     Quyền được làm
@@ -172,7 +172,7 @@
                         <tbody>
                             <tr *ngFor="let permission of _permission">
                                 <td>
-                                    {{permission.AppRole.Description}}
+                                    {{permission.user.fullName}}
                                 </td>
                                 <td>
                                     <div class="checkbox">

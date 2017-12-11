@@ -37,11 +37,9 @@ export class ProviderComponent implements OnInit {
   }
   loadData() {
 
-    this._dataService.get('/api/OutService/GetAll?page=' + this.pageIndex + '&pageSize=' + this.pageSize + '&keyword=' + this.filter)
+    this._dataService.get('/Businesses?filter=' + this.filter)
       .subscribe((response: any) => {
-        this.outservices = response.Data;
-        this.pageIndex = response.PageNumber;
-        this.totalRow = response.TotalEntityCount;
+        this.outservices = response; 
       }, error => this._dataService.handleError(error));
   }
 

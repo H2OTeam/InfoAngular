@@ -37,20 +37,16 @@
             <!--<th></th>-->
             <th>Tiêu đề</th>
             <th>Mô tả</th>
-            <th>IconCss</th>
-            <td>Ngày tạo</td>
-            <td>Người tạo</td>
+            <th>IconCss</th> 
             <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of outservices">
 
-            <td>{{item.Name}}</td>
-            <td>{{item.Description}}</td>
-            <td><i class="glyph-icon {{item.IconCss}}"></i></td>
-            <td>{{item.CreatedDate | date}}</td>
-            <td>{{item.CreatedBy}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td><i class="glyph-icon {{item.iconCss}}"></i></td>
             <td>
               <button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Cập nhật bài viết" *ngIf="_authenService.hasPermission('SERVICES','update')"
                 (click)="showEdit(item.Id)"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
@@ -133,30 +129,7 @@
               <img [src]="baseFolder + entity.Image" width="128" />
             </div>
           </div>
-
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Từ khóa</label>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-              <input type="text" #metaKeyword="ngModel" [(ngModel)]="entity.MetaKeyword" name="keyword" class="form-control" maxlength="256" />
-
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Mô tả SEO</label>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-              <textarea type="text" #metaDescription="ngModel" rows=4 [(ngModel)]="entity.MetaDescription" name="metaDescription" class="form-control" maxlength="100"></textarea>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12">Trạng thái</label>
-            <div class="col-md-9 col-sm-9 col-xs-12">
-              <div class="checkbox">
-                <label>
-                                            <input type="checkbox" [(ngModel)]="entity.Status" name="status" #status="ngModel"> Kích hoạt
-                                        </label>
-              </div>
-            </div>
-          </div>
+          
           <div class="form-group">
             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
               <button type="button" (click)="modalAddEdit.hide()" class="btn btn-primary">Hủy bỏ</button>
