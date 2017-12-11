@@ -32,7 +32,7 @@ export class MainComponent implements OnInit {
     }, error => this._dataService.handleError(error));
   }
   private loadBusiness() {
-    this._dataService.getNotAuth('/Business').subscribe((response: any[]) => {
+    this._dataService.getNotAuth('/Businesses').subscribe((response: any[]) => {
       this.listService = response;
     }, error => this._dataService.handleError(error));
   }

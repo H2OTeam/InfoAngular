@@ -1313,7 +1313,7 @@ section.slider {
 }
 
 .readmore-w3 a {
-  /* border: 1px solid #3aa5dc; */
+  border: 1px solid #3aa5dc;
   /* background: #3aa5dc; */
   text-transform: capitalize;
   display: inline-block;
@@ -1328,13 +1328,12 @@ section.slider {
   -moz-transition: 0.5s all;
   -o-transition: 0.5s all;
   -ms-transition: 0.5s all;
-  float: right;
 }
 
 .readmore-w3 a:hover {
-  /* border: 1px solid #3aa5dc; */
+  border: 1px solid #3aa5dc;
   /* background: #23B684; */
-  color: rgb(255, 255, 255);
+  color: #fff;
 }
 
 
@@ -1388,7 +1387,7 @@ section.slider {
   width: 35px;
   border: solid 2px #212121;
   line-height: 35px;
-  background: #1bc7ff;
+  background: #212121;
   color: #FFFFFF;
   transition: 0.5s all;
   -webkit-transition: 0.5s all;
@@ -2501,7 +2500,7 @@ h4.white-w3ls {
 
 .contact-form {
   background: #181919;
-  padding: 1em 3em;
+  padding: 5em 3em;
 }
 
 .contact input[type="text"],
@@ -2643,7 +2642,7 @@ h4.white-w3ls {
   outline: none;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background: #1bc7ff;
+  background: #e01f3d;
   color: #fff;
 }
 
@@ -3811,7 +3810,7 @@ img.zoom-img:hover,
     padding: 10px 10px;
   }
   .contact-form {
-    padding: 1em 2em;
+    padding: 3em 2em;
   }
   .Servicebottomtext {
     padding: 0 2em;
