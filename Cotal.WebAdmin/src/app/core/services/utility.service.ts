@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { UrlConstants } from '../../core/common/url.constants';
 import { AuthenService } from './authen.service';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable()
 export class UtilityService {
@@ -28,10 +29,13 @@ export class UtilityService {
     let roots: any[] = [];
     if (arr.length == 0) return roots;
     var group = this.groupBy(arr, 'parent')
-    let note = group["null"];
-    note.forEach(it => {
-      it.children = group[it.Id]
-      roots.push(it);
+    let note = group["null"]; 
+    
+    note.forEach(it => {   
+     it.children=[];
+     let listchildren = group["[object Object]"];
+     it.children =listchildren.find(c=>c.parent==it);
+       roots.push(it);
     });
     return roots;
   }
@@ -47,7 +51,7 @@ export class UtilityService {
     for (var i = 0; i < arr.length; i += 1) {
       let node = arr[i];
       node.children = [];
-      map[node.Id] = i; // use map to look-up the parents
+      map[node.id] = i; // use map to look-up the parents
       if (node.parent !== null && node.parent != undefined) {
         arr[map[node.parent]].children.push(node);
       } else {

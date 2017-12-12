@@ -61,7 +61,11 @@ export class DataService {
       .map(this.extractData);
   }
   private extractData(res: Response) {
-    let body = res.json();
+    var result = res.json(); 
+    if (result.isSuccess == false) {
+      this._notificationService.printErrorMessage(result.errorMessages);
+    }
+    let body = result.dataItem;
     return body || {};
   }
   public handleError(error: any) {

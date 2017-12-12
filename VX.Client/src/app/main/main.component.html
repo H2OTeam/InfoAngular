@@ -10,43 +10,17 @@
                 <div id="menu" class="menu">
                   <div (click)="clickMenu()" id="trigger" class="btn trigger" style="margin-left: 23px;margin-top: 23px;">
                     <span class="line"></span>
-                  </div>
+                  </div>  
                   <div class="rotater">
-                    <a data-scroll href="#about-us" class="fa btn btn-icon" *ngIf="listService?.dataItem.length">
-                      <div class="margin-top-40px">{{listService?.dataItem[0]}}</div>
+                    <a data-scroll href="#services" class="fa btn btn-icon">
+                      <div class="margin-top-40px"></div>
                     </a>
-                  </div>
-                  <div class="rotater">
-                    <a data-scroll href="#home" class="fa btn btn-icon" *ngIf="listService?.dataItem.length">
-                      <div class="margin-top-40px">{{listService?.dataItem[0].name}}</div>
+                  </div> 
+                  <div class="rotater"  *ngFor="let x of listService">
+                    <a data-scroll href="#services" class="fa btn btn-icon">
+                      <div class="margin-top-40px">{{x.name}}</div>
                     </a>
-                  </div>
-                  <div class="rotater">
-                    <a data-scroll href="#home" class="fa btn btn-icon" *ngIf="listService?.dataItem.length">
-                      <div class="margin-top-40px">{{listService?.dataItem[1].name}}</div>
-                    </a>
-                  </div>
-                  <div class="rotater">
-                    <a data-scroll href="#home" class="fa btn btn-icon" *ngIf="listService?.dataItem.length">
-                      <div class="margin-top-40px">{{listService?.dataItem[2].name}}</div>
-                    </a>
-                  </div>
-                  <div class="rotater">
-                    <a data-scroll href="#home" class="fa btn btn-icon" *ngIf="listService?.dataItem.length">
-                      <div class="margin-top-40px">{{listService?.dataItem[3].name}}</div>
-                    </a>
-                  </div>
-                  <div class="rotater">
-                    <a data-scroll href="#home" class="fa btn btn-icon" *ngIf="listService?.dataItem.length">
-                      <div class="margin-top-40px">{{listService?.dataItem[4].name}}</div>
-                    </a>
-                  </div>
-                  <div class="rotater">
-                    <a data-scroll href="#home" class="fa btn btn-icon" *ngIf="listService?.dataItem.length">
-                      <div class="margin-top-40px">{{listService?.dataItem[5].name}}</div>
-                    </a>
-                  </div>
-
+                  </div> 
                 </div>
               </div>
             </div>
@@ -60,7 +34,7 @@
 
   <!-- //bootstrap-modal-pop-up -->
   <!-- banner-bottom -->
-  <div class="clearfix"></div>
+  <!-- <div class="clearfix"></div>
   <div class="services" id="services">
     <div class="heading">
       <h2>Our Services</h2>
@@ -105,7 +79,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- //banner-bottom -->
 
   <!-- Clients -->
@@ -115,7 +89,7 @@
 
 
   <!-- our blog -->
-  <section class="blog" id="blog">
+  <!-- <section class="blog" id="blog">
     <div class="container">
       <div class="heading">
         <h3>Latest News</h3>
@@ -148,11 +122,11 @@
         <div class="clearfix"></div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- //our blog -->
 
   <!-- footer -->
-  <footer>
+  <!-- <footer>
     <div class="agileits-w3layouts-footer ">
       <div class="container-fluid">
         <div class="col-md-4 w3-agile-grid ">
@@ -236,5 +210,5 @@
       </div>
     </div>
 
-  </footer>
+  </footer> -->
   <!-- //footer -->

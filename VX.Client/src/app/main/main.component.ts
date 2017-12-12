@@ -27,19 +27,20 @@ export class MainComponent implements OnInit {
 
   // implement
   private loadTopPosts() {
-    this._dataService.getNotAuth('/Posts/GetTop/6').subscribe((response: any[]) => {
-      this.posts = response;
-    }, error => this._dataService.handleError(error));
+    // this._dataService.getNotAuth('/Posts/GetTop/6').subscribe((response: any[]) => {
+    //   this.posts = response;
+    // }, error => this._dataService.handleError(error));
   }
   private loadBusiness() {
     this._dataService.getNotAuth('/Businesses').subscribe((response: any[]) => {
+      console.log(response)
       this.listService = response;
     }, error => this._dataService.handleError(error));
   }
   private loadContact() {
-    this._dataService.getNotAuth('/Contacts').subscribe((response: object) => {
-      this.contact = response;
-    }, error => this._dataService.handleError(error));
+    // this._dataService.getNotAuth('/Contacts').subscribe((response: object) => {
+    //   this.contact = response;
+    // }, error => this._dataService.handleError(error));
   }
   clickMenu() {
     $("#menu").toggleClass("active");
