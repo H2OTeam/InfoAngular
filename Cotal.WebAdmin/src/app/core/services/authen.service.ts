@@ -1,9 +1,10 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
-import 'rxjs/add/operator/map';  
+import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { SystemConstants } from "../common/system.constants";
 import { LoggedInUser } from "../models/LoggedInUser";
+import { log } from 'util';
 
 @Injectable()
 export class AuthenService {
@@ -12,21 +13,20 @@ export class AuthenService {
   login(userName: string, password: string) {
 
     let headers = new Headers();
-    headers.append("Content-Type", "application/json-patch+json"); 
-    headers.append("Accept", "application/json"); 
+    headers.append("Content-Type", "application/json-patch+json");
+    headers.append("Accept", "application/json");
     let options = new RequestOptions({ headers: headers });
     let url = SystemConstants.BASE_API + 'security/login';
-    let body ={
-      "username":userName,
-      "password":password
-    } ;
+    let body = {
+      "username": userName,
+      "password": password
+    };
 
     return this._http.post(url, body, options).map((response: Response) => {
-      
-      var userData = response.json().dataItem;
-      let user=new LoggedInUser(userData.token, userData.UserName,
-        userData.FullName, userData.Email, userData.Avatar, userData.Permissions);
 
+      var userData = response.json().dataItem;
+      let user = new LoggedInUser(userData.token, userData.userName,
+        userData.fullName, userData.email, userData.avatar, userData.permissions, userData.isAdmin);
       if (user && user.Token) {
         localStorage.setItem(SystemConstants.CURRENT_USER, JSON.stringify(user));
       }
@@ -49,7 +49,7 @@ export class AuthenService {
     if (this.isUserAuthenticated()) {
       var userData = JSON.parse(localStorage.getItem(SystemConstants.CURRENT_USER));
       user = new LoggedInUser(userData.token, userData.UserName,
-        userData.FullName, userData.Email, userData.Avatar, userData.Permissions);
+        userData.FullName, userData.Email, userData.Avatar, userData.Permissions, userData.IsAdmin);
     }
     else
       user = null;
@@ -58,8 +58,8 @@ export class AuthenService {
   checkAccess(functionId: string) {
     var user = this.getLoggedInUser();
     var result: boolean = false;
-    var permission: any[] = JSON.parse(user.Permissions); 
-    var hasPermission: number = permission.findIndex(x => x.FunctionId == functionId && x.CanRead == true);
+    var permission: any[] = JSON.parse(user.Permissions);
+    var hasPermission: number = permission.findIndex(x => x.functionId == functionId && x.CanRead == true);
     if (hasPermission != -1 || user.IsAdmin) {
       return true;
     }
@@ -67,25 +67,29 @@ export class AuthenService {
       return false;
   }
   hasPermission(functionId: string, action: string): boolean {
-    var user = this.getLoggedInUser();
+    var user = this.getLoggedInUser(); 
+    if (user.IsAdmin)
+      return true;
+
     var result: boolean = false;
     var permission: any[] = [];
     if (user.Permissions) {
-      user.Permissions = JSON.parse(user.Permissions);
-    } 
+      permission = user.Permissions;
+    }
+
     switch (action) {
       case 'create':
-        var hasPermission: number = permission.findIndex(x => x.FunctionId == functionId && x.CanCreate == true);
+        var hasPermission: number = permission.findIndex(x => x.functionId == functionId && x.CanCreate == true);
         if (hasPermission != -1 || user.IsAdmin)
           result = true;
         break;
       case 'update':
-        var hasPermission: number = permission.findIndex(x => x.FunctionId == functionId && x.CanUpdate == true);
+        var hasPermission: number = permission.findIndex(x => x.functionId == functionId && x.CanUpdate == true);
         if (hasPermission != -1 || user.IsAdmin)
           result = true;
         break;
       case 'delete':
-        var hasPermission: number = permission.findIndex(x => x.FunctionId == functionId && x.CanDelete == true);
+        var hasPermission: number = permission.findIndex(x => x.functionId == functionId && x.CanDelete == true);
         if (hasPermission != -1 || user.IsAdmin)
           result = true;
         break;

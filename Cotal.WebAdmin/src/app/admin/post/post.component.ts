@@ -121,7 +121,7 @@ export class PostComponent implements OnInit {
     }
   }
   private saveData(form: NgForm) {
-    if (this.entity.Id == undefined) {
+    if (this.entity.id == undefined) {
       this._dataService.post('posts',this.entity)
         .subscribe((response: any) => {
           this.reset();
@@ -130,7 +130,7 @@ export class PostComponent implements OnInit {
         }, error => this._dataService.handleError(error));
     }
     else {
-      this._dataService.put('post/'+this.entity.id,this.entity)
+      this._dataService.put('posts/'+this.entity.id,this.entity)
         .subscribe((response: any) => {
           this.reset();
           this.addEditModal.hide(); 

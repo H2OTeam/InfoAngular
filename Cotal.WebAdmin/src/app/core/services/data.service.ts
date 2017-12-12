@@ -7,6 +7,7 @@ import { NotificationService } from './notification.service';
 import { UtilityService } from './utility.service';
 import { Observable } from 'rxjs/Observable';
 import { MessageContstants } from './../common/message.constants';
+import { log } from 'util';
 
 @Injectable()
 export class DataService {
@@ -23,6 +24,10 @@ export class DataService {
       let headersA = new Headers({ 'Authorization': 'Bearer ' + currentUser.access_token });
       headersA.append('content-Type', 'application/json; charset=utf-8');
       headersA.append('Accept', 'application/json');
+      headersA.append("Access-Control-Allow-Origin", "*");
+      headersA.append("Access-Control-Allow-Methods", "POST, GET, DELETE");
+      headersA.append("Access-Control-Max-Age", "3600");
+      headersA.append("Access-Control-Allow-Headers", "Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Client-Offset");
       // headersA.append('GET', 'POST', 'OPTIONS');
 
       return new RequestOptions({ headers: headersA });
@@ -66,13 +71,17 @@ export class DataService {
   postFile(uri: string, data?: any) {
     let newHeader = new Headers();
     let currentUser = JSON.parse(localStorage.getItem(SystemConstants.CURRENT_USER));
-    newHeader.append("Authorization", this.Bearer + currentUser.access_token);
+    newHeader.append("Authorization", this.Bearer + currentUser.access_token);  
+    let boundary = "12345";  
+    newHeader.append('Content-Type', 'multipart/form-data; boundary=' + boundary);   
+
     return this._http.post(SystemConstants.BASE_API + uri, data, { headers: newHeader })
       .map(this.extractData);
   }
   private extractData(res: Response) { 
     var result = res.json(); 
     if (result.isSuccess == false) {
+      console.log(result.errorMessages)
       this._notificationService.printErrorMessage(result.errorMessages);
     }
     let body = result.dataItem;
@@ -89,10 +98,15 @@ export class DataService {
       this._notificationService.printErrorMessage(MessageContstants.FORBIDDEN);
       this._utilityService.navigateToLogin();
     }
+    else if (error.status == 400) { 
+      this._notificationService.printErrorMessage(MessageContstants.BADREQUEST+". Chi tiết:"+JSON.parse(error._body).errorMessages);
+    }
     else {
-      let errMsg = JSON.parse(error._body).Message;
-      this._notificationService.printErrorMessage(errMsg);
-
+      console.log(error._body)
+      console.log(JSON.parse(error._body))
+      let errMsg = JSON.parse(error._body).errorMessages;
+      console.log(error)
+      this._notificationService.printErrorMessage(errMsg); 
       return Observable.throw(errMsg);
     }
   }

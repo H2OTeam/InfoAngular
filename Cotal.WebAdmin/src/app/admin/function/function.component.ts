@@ -103,14 +103,16 @@ export class FunctionComponent implements OnInit {
   }
 
   //Action delete
-  public deleteConfirm(id: string): void {
-    this._dataService.deleteBase('functions/'+ id).subscribe((response: any) => {
+  public deleteConfirm(id: string, children:any): void {
+    let isParent:boolean = children!=null;
+    console.log(isParent);
+    this._dataService.deleteBase('functions/'+ id+'/'+isParent).subscribe((response: any) => {
       this.notificationService.printSuccessMessage(MessageContstants.DELETED_OK_MSG);
       this.search();
     }, error => this._dataService.handleError(error));
   }
   //Click button delete turn on confirm
-  public delete(id: string) {
-    this.notificationService.printConfirmationDialog(MessageContstants.CONFIRM_DELETE_MSG, () => this.deleteConfirm(id));
+  public delete(id: string, children:any) {
+    this.notificationService.printConfirmationDialog(MessageContstants.CONFIRM_DELETE_MSG, () => this.deleteConfirm(id,children));
   }
 }

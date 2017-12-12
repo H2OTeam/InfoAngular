@@ -49,9 +49,9 @@
             <td><i class="glyph-icon {{item.iconCss}}"></i></td>
             <td>
               <button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Cập nhật bài viết" *ngIf="_authenService.hasPermission('SERVICES','update')"
-                (click)="showEdit(item.Id)"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                (click)="showEdit(item.id)"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
               <button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Xóa xoá" *ngIf="_authenService.hasPermission('SERVICES','delete')"
-                (click)="delete(item.Id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                (click)="delete(item.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </td>
           </tr>
 
@@ -87,18 +87,18 @@
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Tên dịch vụ</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-              <input type="hidden" [(ngModel)]="entity.Id" name="id" />
-              <input type="text" #name="ngModel" (blur)="createAlias()" [(ngModel)]="entity.Name" required minlength="3" maxlength="255" name="name" class="form-control">
+              <input type="hidden" [(ngModel)]="entity.id" name="id" />
+              <input type="text" #name="ngModel"  [(ngModel)]="entity.name" required minlength="3" maxlength="255" name="name" class="form-control">
               <small [hidden]="name.valid || (name.pristine && !addEditForm.submitted)" class="text-danger">
                                 Bạn phải nhập tên ít nhất 3 ký tự
                             </small>
-              <input type="hidden" [(ngModel)]="entity.Alias" name="Alias" maxlength="2000"/>
+              
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Mô tả</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-              <input type="text" #description="ngModel" [(ngModel)]="entity.Description" name="description" class="form-control" maxlength="4000"/>
+              <input type="text" #description="ngModel" [(ngModel)]="entity.description" name="description" class="form-control" maxlength="4000"/>
 
             </div>
           </div>
@@ -106,7 +106,7 @@
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Nội dung</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-              <app-simple-tiny [elementId]="'page-editor-id'" [content]="entity.Content" (onEditorKeyup)="keyupHandlerContentFunction($event)">
+              <app-simple-tiny [elementId]="'page-editor-id'" [content]="entity.content" (onEditorKeyup)="keyupHandlerContentFunction($event)">
               </app-simple-tiny>
             </div>
           </div>
@@ -114,7 +114,7 @@
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Icon CSS</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-              <input type="text" #iconCss="ngModel" [(ngModel)]="entity.IconCss" name="iconCss" class="form-control" maxlength="256" />
+              <input type="text" #iconCss="ngModel" [(ngModel)]="entity.iconCss" name="iconCss" class="form-control" maxlength="256" />
             </div>
           </div>
           <div class="form-group">
@@ -122,11 +122,11 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="file" #image name="image" class="form-control">
               <p class="help-block label label-danger"> chỉ hỗ trợ định dạng *.png, *.jpg, *.jpeg </p>
-              <input type="hidden" [(ngModel)]="entity.Image" name="imageUrl" />
+              <input type="hidden" [(ngModel)]="entity.image" name="imageUrl" />
             </div>
 
-            <div class="col-md-3 col-sm-3 col-xs-12" *ngIf="entity.Image">
-              <img [src]="baseFolder + entity.Image" width="128" />
+            <div class="col-md-3 col-sm-3 col-xs-12" *ngIf="entity.image">
+              <img [src]="baseFolder + entity.image" width="128" />
             </div>
           </div>
           

@@ -37,7 +37,7 @@ export class ProviderComponent implements OnInit {
   }
   loadData() {
 
-    this._dataService.get('/Businesses?filter=' + this.filter)
+    this._dataService.get('businesses?filter=' + this.filter)
       .subscribe((response: any) => {
         this.outservices = response; 
       }, error => this._dataService.handleError(error));
@@ -65,14 +65,14 @@ export class ProviderComponent implements OnInit {
   //Show edit form
   public showEdit(id: string) {
     this.entity = { Content: '' };
-    this._dataService.get('/api/OutService/Detail/' + id).subscribe((response: any) => {
+    this._dataService.get('businesses/' + id).subscribe((response: any) => {
       this.entity = response;
       this.modalAddEdit.show();
     }, error => this._dataService.handleError(error));
   }
   public delete(id: string) {
     this._notificationService.printConfirmationDialog(MessageContstants.CONFIRM_DELETE_MSG, () => {
-      this._dataService.delete('/api/OutService/', 'id', id).subscribe((response: any) => {
+      this._dataService.delete('businesses/', 'id', id).subscribe((response: any) => {
         this._notificationService.printSuccessMessage(MessageContstants.DELETED_OK_MSG);
         this.loadData();
       }, error => this._dataService.handleError(error));
@@ -82,7 +82,7 @@ export class ProviderComponent implements OnInit {
     if (form.valid) {
       let fi = this.image.nativeElement;
       if (fi.files.length > 0) {
-        this._uploadService.postWithFile('/api/Upload/SaveImage?type=service', null, fi.files)
+        this._uploadService.postWithFile('static/upload?type=service', null, fi.files)
           .then((imageUrl: string) => {
             this.entity.Image = imageUrl;
           }).then(() => {
@@ -96,8 +96,8 @@ export class ProviderComponent implements OnInit {
   }
 
   private saveData(form: NgForm) {
-    if (this.entity.Id == undefined) {
-      this._dataService.post('/api/OutService', JSON.stringify(this.entity))
+    if (this.entity.id == undefined) {
+      this._dataService.post('businesses', this.entity)
         .subscribe((response: any) => {
           this.reset();
           this.modalAddEdit.hide();
@@ -105,7 +105,7 @@ export class ProviderComponent implements OnInit {
         }, error => this._dataService.handleError(error));
     }
     else {
-      this._dataService.put('/api/OutService', JSON.stringify(this.entity))
+      this._dataService.put('businesses/'+this.entity.id, this.entity)
         .subscribe((response: any) => {
           this.reset();
           this.modalAddEdit.hide();

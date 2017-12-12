@@ -34,8 +34,8 @@ export class UtilityService {
     note.forEach(it => {   
      it.children=[];
      let listchildren = group["[object Object]"];
-     it.children =listchildren.find(c=>c.parent==it);
-       roots.push(it);
+     it.children =listchildren.filter(c=>c.parent.id==it.id);
+     roots.push(it);
     });
     return roots;
   }

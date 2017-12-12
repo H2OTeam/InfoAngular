@@ -30,11 +30,14 @@
             <div class="x_content">
                 <tree-root #treeFunction [nodes]="_functionHierachy">
                     <ng-template #treeNodeTemplate let-node let-index="index">
-                        <span>{{ node.data.name }}</span>
-                        <button class="btn btn-xs btn-success" (click)="showPermission(node.data.id)"> <i class="fa fa-lock"  aria-hidden="true"></i></button>
-                        <button class="btn btn-xs btn-primary" (click)="showEdit(node.data.id)"> <i class="fa fa-pencil-square-o"  aria-hidden="true"></i></button>
-                        <button class="btn btn-xs btn-danger" (click)="delete(node.data.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                    </ng-template>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <span>{{ node.data.name }}</span> 
+                            <button class="btn btn-xs btn-success" (click)="showPermission(node.data.id)"> <i class="fa fa-lock"  aria-hidden="true"></i></button>
+                            <button class="btn btn-xs btn-primary" (click)="showEdit(node.data.id)"> <i class="fa fa-pencil-square-o"  aria-hidden="true"></i></button>
+                            <button class="btn btn-xs btn-danger" (click)="delete(node.data.id,node.data.children)"><i class="fa fa-trash" aria-hidden="true"></i></button> 
+                   
+                        </div>
+                       </ng-template>
                 </tree-root>
             </div>
         </div>

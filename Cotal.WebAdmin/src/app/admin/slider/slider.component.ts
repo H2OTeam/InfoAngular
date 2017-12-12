@@ -38,11 +38,13 @@ export class SliderComponent implements OnInit {
   }
   loadData() {
 
-    this._dataService.get('/api/Slider/GetAll?page=' + this.pageIndex + '&pageSize=' + this.pageSize + '&keyword=' + this.filter)
-      .subscribe((response: any) => {
-        this.sliders = response.Data; 
-        this.pageIndex = response.PageNumber;
-        this.totalRow = response.TotalEntityCount;
+    this._dataService.get('slider/' + this.pageIndex + '/' + this.pageSize + '?name=' + this.filter)
+      .subscribe((response: any) => {   
+        
+        this.sliders = response.data; 
+        console.log(this.sliders);
+        this.pageIndex = response.pageNumber;
+        this.totalRow = response.iotalEntityCount;
       }, error => this._dataService.handleError(error));
   }
 
@@ -72,14 +74,14 @@ export class SliderComponent implements OnInit {
   public showEdit(id: string) {
     this. loadSlideType();
     this.entity = { Content: '' };
-    this._dataService.get('/api/Slider/Detail/' + id).subscribe((response: any) => {
+    this._dataService.get('slider/' + id).subscribe((response: any) => {
       this.entity = response;
       this.modalAddEdit.show();
     }, error => this._dataService.handleError(error));
   }
   public delete(id: string) {
     this._notificationService.printConfirmationDialog(MessageContstants.CONFIRM_DELETE_MSG, () => {
-      this._dataService.delete('/api/Slider/Delete/', 'id', id).subscribe((response: any) => {
+      this._dataService.deleteBase('slider/'+ id).subscribe((response: any) => {
         this._notificationService.printSuccessMessage(MessageContstants.DELETED_OK_MSG);
         this.loadData();
       }, error => this._dataService.handleError(error));
@@ -89,9 +91,9 @@ export class SliderComponent implements OnInit {
     if (form.valid) {
       let fi = this.image.nativeElement;
       if (fi.files.length > 0) {
-        this._uploadService.postWithFile('/api/Upload/SaveImage?type=slider', null, fi.files)
+        this._uploadService.postWithFile('static/upload?type=slider', null, fi.files)
           .then((imageUrl: string) => {
-            this.entity.Image = imageUrl;
+            this.entity.image = imageUrl;
           }).then(() => {
             this.saveData(form);
           });
@@ -103,8 +105,8 @@ export class SliderComponent implements OnInit {
   }
 
   private saveData(form: NgForm) {
-    if (this.entity.Id == undefined) {
-      this._dataService.post('/api/Slider/Add', JSON.stringify(this.entity))
+    if (this.entity.id == undefined) {
+      this._dataService.post('slider', this.entity)
         .subscribe((response: any) => {
           this.reset();
           this.modalAddEdit.hide();
@@ -112,7 +114,7 @@ export class SliderComponent implements OnInit {
         }, error => this._dataService.handleError(error));
     }
     else {
-      this._dataService.put('/api/Slider/Update', JSON.stringify(this.entity))
+      this._dataService.put('slider/'+this.entity.id, this.entity)
         .subscribe((response: any) => {
           this.reset();
           this.modalAddEdit.hide();
