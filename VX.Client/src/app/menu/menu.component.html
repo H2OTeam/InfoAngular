@@ -1,0 +1,23 @@
+<div class="w3layouts-banner-top w3layouts-banner-top1">
+  <div class="banner-dott">
+    <div class="container">
+      <div class="cycle-menu">
+        <div id="menu" class="menu">
+          <div (click)="clickMenu()" id="trigger" class="btn trigger" style="margin-left: 23px;margin-top: 23px;">
+            <span class="line"></span>
+          </div>  
+          <div class="rotater">
+            <a data-scroll href="#services" class="fa btn btn-icon">
+              <div class="margin-top-40px"></div>
+            </a>
+          </div> 
+          <div class="rotater"  *ngFor="let x of listService">
+            <a data-scroll href="#services" class="fa btn btn-icon">
+              <div class="margin-top-40px">{{x.name}}</div>
+            </a>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

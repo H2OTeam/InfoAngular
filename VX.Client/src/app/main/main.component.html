@@ -1,137 +1,28 @@
 <div class="slider" style="position: relative">
-  <div style="position: absolute; top: 0; left:0; z-index: 999;"><img src="../assets/images/logo.bmp" width="150px" height="100px" alt=""></div>
   <div class="callbacks_container">
     <div class="rslides" id="slider">
       <div>
-        <div class="w3layouts-banner-top w3layouts-banner-top1">
-          <div class="banner-dott">
-            <div class="container">
-              <div class="cycle-menu">
-                <div id="menu" class="menu">
-                  <div (click)="clickMenu()" id="trigger" class="btn trigger" style="margin-left: 23px;margin-top: 23px;">
-                    <span class="line"></span>
-                  </div>  
-                  <div class="rotater">
-                    <a data-scroll href="#services" class="fa btn btn-icon">
-                      <div class="margin-top-40px"></div>
-                    </a>
-                  </div> 
-                  <div class="rotater"  *ngFor="let x of listService">
-                    <a data-scroll href="#services" class="fa btn btn-icon">
-                      <div class="margin-top-40px">{{x.name}}</div>
-                    </a>
-                  </div> 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-menu></app-menu>
       </div>
     </div>
     <div class="clearfix"></div>
   </div>
   <!-- bootstrap-modal-pop-up -->
-
-  <!-- //bootstrap-modal-pop-up -->
-  <!-- banner-bottom -->
-  <!-- <div class="clearfix"></div>
-  <div class="services" id="services">
-    <div class="heading">
-      <h2>Our Services</h2>
-    </div>
-    <div class="container">
-      <div class="servicegrids">
-        <div class="servicetopgrids">
-          <div class="col-md-4 servicegrid1">
-            <h5>01</h5>
-            <h4>{{listService?.dataItem[0].name}}</h4>
-            <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem.</p>
-          </div>
-          <div class="col-md-4 servicegrid1">
-            <h5>02</h5>
-            <h4>{{listService?.dataItem[1].name}}</h4>
-            <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem.</p>
-          </div>
-          <div class="col-md-4 servicegrid1">
-            <h5>03</h5>
-            <h4>{{listService?.dataItem[2].name}}</h4>
-            <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem.</p>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-        <div class="servicebottomgrids">
-          <div class="col-md-4 servicegrid1">
-            <h5>04</h5>
-            <h4>{{listService?.dataItem[3].name}}</h4>
-            <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem.</p>
-          </div>
-          <div class="col-md-4 servicegrid1">
-            <h5>05</h5>
-            <h4>{{listService?.dataItem[4].name}}</h4>
-            <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem.</p>
-          </div>
-          <div class="col-md-4 servicegrid1">
-            <h5>06</h5>
-            <h4>{{listService?.dataItem[5].name}}</h4>
-            <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem.</p>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- //banner-bottom -->
+<app-businesses-service></app-businesses-service>
 
   <!-- Clients -->
-
   <div class="clearfix"> </div>
   <!-- //Counter -->
+<app-post-news></app-post-news>
 
-
-  <!-- our blog -->
-  <!-- <section class="blog" id="blog">
-    <div class="container">
-      <div class="heading">
-        <h3>Latest News</h3>
-      </div>
-      <div class="blog-grids">
-        <div class="col-md-4 blog-grid" *ngFor="let item of posts?.dataItem?.data">
-          <a href="#" data-toggle="modal" data-target="#myModal1"><img src="../assets/images/bg4.jpg" alt="" /></a>
-          <br>
-          <br>
-          <h4><a href="#" data-toggle="modal" data-target="#myModal1">{{item.name}}</a></h4>
-          <p>{{item.description}}</p>
-          <div class="readmore-w3">
-            <a class="readmore" href="#" data-toggle="modal" [attr.data-target]="'#' + item.id">Read More...</a>
-          </div>
-          <div class="modal video-modal fade" id="{{item.id}}" tabindex="-1" role="dialog" aria-labelledby="myModal2">
-            <div style="width: 80%" class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  Transporters
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                  <img src="../assets//images/bg4.jpg" alt=" " class="img-responsive" />
-                  <p innerHTML="{{item.content}}"></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-  </section> -->
-  <!-- //our blog -->
 
   <!-- footer -->
-  <!-- <footer>
+  <footer>
     <div class="agileits-w3layouts-footer ">
       <div class="container-fluid">
-        <div class="col-md-4 w3-agile-grid ">
+        <!-- <div class="col-md-4 w3-agile-grid ">
           <h5>About Us</h5>
-          <p>{{contact?.dataItem[0].aboutUs}}</p>
+          <p>{{contact.aboutUs}}</p>
           <div class="footer-agileinfo-social ">
             <ul>
               <li><a href="# "><i class="fa fa-facebook "></i></a></li>
@@ -140,9 +31,9 @@
               <li><a href="# "><i class="fa fa-vk "></i></a></li>
             </ul>
           </div>
-        </div>
+        </div> -->
 
-        <div class="col-md-4 w3-agile-grid ">
+        <!-- <div class="col-md-4 w3-agile-grid ">
           <h5>Address</h5>
           <div class="w3-address ">
             <div class="w3-address-grid ">
@@ -151,7 +42,7 @@
               </div>
               <div class="w3-address-right ">
                 <h6>Phone Number</h6>
-                <p>{{contact?.dataItem[0].phone}}</p>
+                <p>{{contact.phone}}</p>
               </div>
               <div class="clearfix "> </div>
             </div>
@@ -161,7 +52,7 @@
               </div>
               <div class="w3-address-right ">
                 <h6>Email Address</h6>
-                <p>Email :<a href="{{contact?.dataItem[0].email}}"> {{contact?.dataItem[0].email}}</a></p>
+                <p>Email :<a href="{{contact.email}}"> {{contact.email}}</a></p>
               </div>
               <div class="clearfix "> </div>
             </div>
@@ -171,13 +62,13 @@
               </div>
               <div class="w3-address-right ">
                 <h6>Location</h6>
-                <p> {{contact?.dataItem[0].address}}
+                <p> {{contact.address}}
                 </p>
               </div>
               <div class="clearfix "> </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="col-md-4 w3-agile-grid ">
           <div class="contact-form">
             <h4 class="white-w3ls">Contact <span>Form</span></h4>
@@ -210,5 +101,5 @@
       </div>
     </div>
 
-  </footer> -->
+  </footer>
   <!-- //footer -->
