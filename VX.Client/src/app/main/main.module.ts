@@ -12,7 +12,8 @@ import { NotificationService } from 'app/core/services/notification.service';
 import { PostNewsComponent } from 'app/post-news/post-news.component';
 import { ServiceComponent } from 'app/service/service.component';
 import { MenuComponent } from 'app/menu/menu.component';
-
+import { SlideComponent } from 'app/slide-show/slide-show.component';
+import { FooterComponent } from 'app/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -22,13 +23,17 @@ import { MenuComponent } from 'app/menu/menu.component';
   declarations: [MainComponent,
     PostNewsComponent,
     ServiceComponent,
-    MenuComponent
+    MenuComponent,
+    SlideComponent,
+    FooterComponent
   ],
   providers: [UtilityService, AuthenService, NotificationService, DataService],
   exports: [  
     PostNewsComponent,
     ServiceComponent,
-    MenuComponent
+    MenuComponent,
+    SlideComponent,
+    FooterComponent
   ],
   entryComponents: [ ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

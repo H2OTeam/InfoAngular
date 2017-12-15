@@ -1,14 +1,12 @@
 <!-- banner-bottom -->
-  <div class="clearfix"></div>
-  <div class="services" id="services">
-    <div class="heading">
-      <h2>Our Services</h2>
-    </div>
-    <div class="container">
+<div class="clearfix"></div>
+<div class="services" id="services">
+  <div class="container">
+    <div class="row">
       <div class="servicegrids">
         <div class="servicetopgrids">
           <div class="col-md-4 servicegrid1" *ngFor="let item of listService">
-            <h5>{{item.id}}</h5>
+
             <h4>{{item.name}}</h4>
             <img src="../assets/images/bg4.jpg" alt=" " class="img-responsive" />
             <p innerHTML="{{item.content}}"></p>
@@ -18,4 +16,5 @@
       </div>
     </div>
   </div>
-  <!-- //banner-bottom -->
+</div>
+<!-- //banner-bottom -->

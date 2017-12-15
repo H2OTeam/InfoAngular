@@ -1,105 +1,46 @@
-<div class="slider" style="position: relative">
-  <div class="callbacks_container">
-    <div class="rslides" id="slider">
-      <div>
-        <app-menu></app-menu>
-      </div>
+<!-- Preloader -->
+<div class="preloader"></div>
+
+<!-- Navigation -->
+<nav class="navbar navbar-fixed-top">
+  <div class="container">    
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" data-scroll href="#home"><img height="100" src="./assets/VXTemplate/images/logo.jpg" id="logo" alt="logo top"></a> </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"> <a data-scroll href="#home">Home</a> </li>
+        <li> <a data-scroll href="#about-us">About Us</a> </li>        
+        <li class="dropdown"> <a  data-scroll class="dropdown-toggle" data-toggle="dropdown" href="#">Services <span class="caret"></span></a> 
+          <ul class="dropdown-menu" data-scroll href="#" style="text-align: center;">
+            <li><a href="./services/service1.html">Freight</a></li>
+            <li><a href="./services/service1.html">Strucking</a></li>
+            <li><a href="./services/service1.html">Customs Broker</a></li>
+            <li><a href="./services/service1.html">WareHouse</a></li>
+          </ul>
+           
+        </li>
+        <li> <a data-scroll href="#gallery">Gallery</a> </li>
+        <li> <a data-scroll href="#news">News</a> </li>
+        <li> <a data-scroll href="#contact">Contact</a> </li>
+      </ul>
     </div>
-    <div class="clearfix"></div>
+    <!-- /.navbar-collapse --> 
   </div>
-  <!-- bootstrap-modal-pop-up -->
+  <!-- /.container-fluid --> 
+</nav>
+<!-- /.Navigation --> 
+<!-- Header -->
+<header id="home">
+<div class="cycle-menu">
+  <app-menu></app-menu>
+  <app-slide-show></app-slide-show>
+</div>
+</header>
+<!-- /.Header --> 
 <app-businesses-service></app-businesses-service>
-
-  <!-- Clients -->
-  <div class="clearfix"> </div>
-  <!-- //Counter -->
 <app-post-news></app-post-news>
-
-
-  <!-- footer -->
-  <footer>
-    <div class="agileits-w3layouts-footer ">
-      <div class="container-fluid">
-        <!-- <div class="col-md-4 w3-agile-grid ">
-          <h5>About Us</h5>
-          <p>{{contact.aboutUs}}</p>
-          <div class="footer-agileinfo-social ">
-            <ul>
-              <li><a href="# "><i class="fa fa-facebook "></i></a></li>
-              <li><a href="# "><i class="fa fa-twitter "></i></a></li>
-              <li><a href="# "><i class="fa fa-rss "></i></a></li>
-              <li><a href="# "><i class="fa fa-vk "></i></a></li>
-            </ul>
-          </div>
-        </div> -->
-
-        <!-- <div class="col-md-4 w3-agile-grid ">
-          <h5>Address</h5>
-          <div class="w3-address ">
-            <div class="w3-address-grid ">
-              <div class="w3-address-left ">
-                <i class="fa fa-phone " aria-hidden="true "></i>
-              </div>
-              <div class="w3-address-right ">
-                <h6>Phone Number</h6>
-                <p>{{contact.phone}}</p>
-              </div>
-              <div class="clearfix "> </div>
-            </div>
-            <div class="w3-address-grid ">
-              <div class="w3-address-left ">
-                <i class="fa fa-envelope " aria-hidden="true "></i>
-              </div>
-              <div class="w3-address-right ">
-                <h6>Email Address</h6>
-                <p>Email :<a href="{{contact.email}}"> {{contact.email}}</a></p>
-              </div>
-              <div class="clearfix "> </div>
-            </div>
-            <div class="w3-address-grid ">
-              <div class="w3-address-left ">
-                <i class="fa fa-map-marker " aria-hidden="true "></i>
-              </div>
-              <div class="w3-address-right ">
-                <h6>Location</h6>
-                <p> {{contact.address}}
-                </p>
-              </div>
-              <div class="clearfix "> </div>
-            </div>
-          </div>
-        </div> -->
-        <div class="col-md-4 w3-agile-grid ">
-          <div class="contact-form">
-            <h4 class="white-w3ls">Contact <span>Form</span></h4>
-            <form action="#" method="post">
-              <div class="styled-input agile-styled-input-top">
-                <input type="text" name="Name" required="">
-                <label>Name</label>
-                <span></span>
-              </div>
-              <div class="styled-input">
-                <input type="email" name="Email" required="">
-                <label>Email</label>
-                <span></span>
-              </div>
-              <div class="styled-input">
-                <input type="text" name="Subject" required="">
-                <label>Subject</label>
-                <span></span>
-              </div>
-              <div class="styled-input">
-                <textarea name="Message" required=""></textarea>
-                <label>Message</label>
-                <span></span>
-              </div>
-              <input type="submit" value="SEND">
-            </form>
-          </div>
-        </div>
-        <div class="clearfix "> </div>
-      </div>
-    </div>
-
-  </footer>
-  <!-- //footer -->
+<app-footer></app-footer>

@@ -574,6 +574,7 @@ a.navbar-brand span {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   margin: 0 auto;
+  
 }
 
 .rslides_tabs li:first-child {
@@ -4749,6 +4750,7 @@ header .intro-text .separator {
   -webkit-transform: translateX(-50%) translateY(-50%);
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+  z-index: 1;
 }
 
 .menu .btn {
