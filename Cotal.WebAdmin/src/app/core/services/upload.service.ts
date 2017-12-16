@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { DataService } from "app/core/services/data.service";
-import { UtilityService } from "app/core/services/utility.service";
+import { Injectable } from '@angular/core'; 
+import { DataService } from './data.service';
+import { UtilityService } from './utility.service';
 
 @Injectable()
 export class UploadService {
@@ -20,6 +20,7 @@ export class UploadService {
     var returnReponse = new Promise((resolve, reject) => {
       this.dataService.postFile(url, formData).subscribe(
         res => {
+          console.log(res);
           this.responseData = res.imageUrl_1; 
           resolve(this.responseData);
         },

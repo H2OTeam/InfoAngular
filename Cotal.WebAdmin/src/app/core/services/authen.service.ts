@@ -5,11 +5,14 @@ import { Observable } from 'rxjs/Observable';
 import { SystemConstants } from "../common/system.constants";
 import { LoggedInUser } from "../models/LoggedInUser";
 import { log } from 'util';
+import { AuthHttp, AuthConfig, JwtHelper } from 'angular2-jwt';  
 
-@Injectable()
+@Injectable() 
+
 export class AuthenService {
   constructor(private _http: Http) {
   }
+   
   login(userName: string, password: string) {
 
     let headers = new Headers();
@@ -24,12 +27,16 @@ export class AuthenService {
 
     return this._http.post(url, body, options).map((response: Response) => {
 
-      var userData = response.json().dataItem;
-      let user = new LoggedInUser(userData.token, userData.userName,
-        userData.fullName, userData.email, userData.avatar, userData.permissions, userData.isAdmin);
-      if (user && user.Token) {
-        localStorage.setItem(SystemConstants.CURRENT_USER, JSON.stringify(user));
-      }
+      var token = response.json().dataItem;
+      let jwtHelper: JwtHelper = new JwtHelper(); 
+      var tockentData= jwtHelper.decodeToken(token);
+      let userData = JSON.parse(tockentData.CURENT_USER); 
+      let user = new LoggedInUser(token, userData.UserName,
+          userData.FullName, userData.Email, userData.Avatar, userData.Permissions, userData.IsAdmin);
+          console.log(user);
+        if (user && user.Token) {
+          localStorage.setItem(SystemConstants.CURRENT_USER, JSON.stringify(user));
+        }  
 
     });
   }

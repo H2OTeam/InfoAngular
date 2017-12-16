@@ -20,8 +20,8 @@ export class DataService {
   private jwt() {
     // create authorization header with jwt token
     let currentUser = JSON.parse(localStorage.getItem(SystemConstants.CURRENT_USER));
-    if (currentUser && currentUser.access_token) {
-      let headersA = new Headers({ 'Authorization': 'Bearer ' + currentUser.access_token });
+    if (currentUser && currentUser.Token) {
+      let headersA = new Headers({ 'Authorization': 'Bearer ' + currentUser.Token });
       headersA.append('content-Type', 'application/json; charset=utf-8');
       headersA.append('Accept', 'application/json');
       headersA.append("Access-Control-Allow-Origin", "*");
@@ -71,9 +71,7 @@ export class DataService {
   postFile(uri: string, data?: any) {
     let newHeader = new Headers();
     let currentUser = JSON.parse(localStorage.getItem(SystemConstants.CURRENT_USER));
-    newHeader.append("Authorization", this.Bearer + currentUser.access_token);  
-    let boundary = "12345";  
-    newHeader.append('Content-Type', 'multipart/form-data; boundary=' + boundary);   
+    newHeader.append("Authorization", this.Bearer + currentUser.Token);    
 
     return this._http.post(SystemConstants.BASE_API + uri, data, { headers: newHeader })
       .map(this.extractData);
@@ -101,11 +99,8 @@ export class DataService {
     else if (error.status == 400) { 
       this._notificationService.printErrorMessage(MessageContstants.BADREQUEST+". Chi tiết:"+JSON.parse(error._body).errorMessages);
     }
-    else {
-      console.log(error._body)
-      console.log(JSON.parse(error._body))
-      let errMsg = JSON.parse(error._body).errorMessages;
-      console.log(error)
+    else { 
+      let errMsg = JSON.parse(error._body).errorMessages; 
       this._notificationService.printErrorMessage(errMsg); 
       return Observable.throw(errMsg);
     }
