@@ -93,7 +93,7 @@ export class SliderComponent implements OnInit {
       if (fi.files.length > 0) {
         this._uploadService.postWithFile('static/upload?type=slider', null, fi.files)
           .then((imageUrl: string) => {
-            this.entity.image = imageUrl;
+            this.entity.imageUrl = imageUrl;
           }).then(() => {
             this.saveData(form);
           });

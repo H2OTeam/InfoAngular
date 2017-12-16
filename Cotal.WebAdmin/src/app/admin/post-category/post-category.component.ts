@@ -90,7 +90,7 @@ export class PostCategoryComponent implements OnInit {
       if (fi.files.length > 0) {
         this._uploadService.postWithFile('upload?type=News', null, fi.files)
           .then((imageUrl: string) => {
-            this.entity.Image = imageUrl;
+            this.entity.imageUrl = imageUrl;
           }).then(() => {
             this.saveData(form.valid);
           });

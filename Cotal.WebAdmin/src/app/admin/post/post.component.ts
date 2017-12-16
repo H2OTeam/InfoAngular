@@ -110,7 +110,7 @@ export class PostComponent implements OnInit {
       if (fi.files.length > 0) {
         this._uploadService.postWithFile('static/upload?type=new', null, fi.files)
           .then((imageUrl: string) => { 
-            this.entity.Image = imageUrl;
+            this.entity.imageUrl = imageUrl;
           }).then(() => {
             this.saveData(form);
           });

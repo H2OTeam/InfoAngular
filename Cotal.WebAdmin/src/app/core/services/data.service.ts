@@ -71,8 +71,7 @@ export class DataService {
   postFile(uri: string, data?: any) {
     let newHeader = new Headers();
     let currentUser = JSON.parse(localStorage.getItem(SystemConstants.CURRENT_USER));
-    newHeader.append("Authorization", this.Bearer + currentUser.Token);    
-
+    newHeader.append("Authorization", this.Bearer + currentUser.Token);   
     return this._http.post(SystemConstants.BASE_API + uri, data, { headers: newHeader })
       .map(this.extractData);
   }
