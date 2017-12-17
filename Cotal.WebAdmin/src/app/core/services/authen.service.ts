@@ -32,8 +32,7 @@ export class AuthenService {
       var tockentData= jwtHelper.decodeToken(token);
       let userData = JSON.parse(tockentData.CURENT_USER); 
       let user = new LoggedInUser(token, userData.UserName,
-          userData.FullName, userData.Email, userData.Avatar, userData.Permissions, userData.IsAdmin);
-          console.log(user);
+          userData.FullName, userData.Email, userData.Avatar, userData.Permissions, userData.IsAdmin); 
         if (user && user.Token) {
           localStorage.setItem(SystemConstants.CURRENT_USER, JSON.stringify(user));
         }  

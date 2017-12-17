@@ -45,7 +45,7 @@
               <td>{{it.status}}</td>
               <td>{{it.url}}</td>
               <td>{{it.typeName}}</td>
-              <td><img [src]="baseFolder + it.Image" class="img-responsive" width="128" /></td>
+              <td><img [src]="baseFolder + it.imageUrl" class="img-responsive" width="128" /></td>
               <td>
                 <button class="btn btn-primary" *ngIf="_authenService.hasPermission('SLIDER','update')" (click)="showEdit(it.id)"><i class="fa fa-pencil-square-o"></i></button>
                 <button class="btn btn-danger" *ngIf="_authenService.hasPermission('SLIDER','delete')" (click)="showEdit(it.id)"><i class="fa fa-trash"></i></button>

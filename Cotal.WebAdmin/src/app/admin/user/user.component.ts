@@ -89,9 +89,7 @@ export class UserComponent implements OnInit {
         for (let role of this.entity.Roles) {
           this.myRoles.push(role);
         }
-        this.entity.BirthDay = moment(new Date(this.entity.BirthDay)).format('DD/MM/YYYY');
-
-        console.log(this.entity.BirthDay);
+        this.entity.BirthDay = moment(new Date(this.entity.BirthDay)).format('DD/MM/YYYY'); 
       });
   }
   saveChange(form: NgForm) {

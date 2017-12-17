@@ -41,8 +41,7 @@ export class SliderComponent implements OnInit {
     this._dataService.get('slider/' + this.pageIndex + '/' + this.pageSize + '?name=' + this.filter)
       .subscribe((response: any) => {   
         
-        this.sliders = response.data; 
-        console.log(this.sliders);
+        this.sliders = response.data;  
         this.pageIndex = response.pageNumber;
         this.totalRow = response.iotalEntityCount;
       }, error => this._dataService.handleError(error));
@@ -93,6 +92,7 @@ export class SliderComponent implements OnInit {
       if (fi.files.length > 0) {
         this._uploadService.postWithFile('static/upload?type=slider', null, fi.files)
           .then((imageUrl: string) => {
+            console.log(imageUrl)
             this.entity.imageUrl = imageUrl;
           }).then(() => {
             this.saveData(form);

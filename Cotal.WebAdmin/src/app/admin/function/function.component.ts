@@ -104,8 +104,7 @@ export class FunctionComponent implements OnInit {
 
   //Action delete
   public deleteConfirm(id: string, children:any): void {
-    let isParent:boolean = children!=null;
-    console.log(isParent);
+    let isParent:boolean = children!=null; 
     this._dataService.deleteBase('functions/'+ id+'/'+isParent).subscribe((response: any) => {
       this.notificationService.printSuccessMessage(MessageContstants.DELETED_OK_MSG);
       this.search();

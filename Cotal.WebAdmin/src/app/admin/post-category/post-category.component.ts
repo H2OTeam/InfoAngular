@@ -35,8 +35,7 @@ export class PostCategoryComponent implements OnInit {
     this.search();
     this.getListForDropdown();
   }
-  public onSelectedChange($event) {
-    console.log($event);
+  public onSelectedChange($event) { 
   }
   public createAlias() {
     this.entity.Alias = this.utilityService.MakeSeoTitle(this.entity.Name);
@@ -64,8 +63,7 @@ export class PostCategoryComponent implements OnInit {
   }
   //Show edit form
   public showEdit(id: string) {
-    
-      console.log(this.baseFolder)
+     
     this._dataService.get('postCategorys/' + id).subscribe((response: any) => {
       this.entity = response;
       this.editFlg = true;

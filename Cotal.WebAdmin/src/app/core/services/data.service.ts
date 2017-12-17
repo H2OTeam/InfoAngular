@@ -77,8 +77,7 @@ export class DataService {
   }
   private extractData(res: Response) { 
     var result = res.json(); 
-    if (result.isSuccess == false) {
-      console.log(result.errorMessages)
+    if (result.isSuccess == false) { 
       this._notificationService.printErrorMessage(result.errorMessages);
     }
     let body = result.dataItem;
