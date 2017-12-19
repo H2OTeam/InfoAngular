@@ -108,7 +108,7 @@ export class PostComponent implements OnInit {
     if (form.valid) { 
       let fi = this.image.nativeElement;
       if (fi.files.length > 0) {
-        this._uploadService.postWithFile('static/upload?type=new', null, fi.files)
+        this._uploadService.postWithFile('new', null, fi.files)
           .then((imageUrl: string) => { 
             this.entity.imageUrl = imageUrl;
           }).then(() => {

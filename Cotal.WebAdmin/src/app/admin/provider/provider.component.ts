@@ -82,7 +82,7 @@ export class ProviderComponent implements OnInit {
     if (form.valid) {
       let fi = this.image.nativeElement;
       if (fi.files.length > 0) {
-        this._uploadService.postWithFile('static/upload?type=service', null, fi.files)
+        this._uploadService.postWithFile('service', null, fi.files)
           .then((imageUrl: string) => {
             this.entity.imageUrl = imageUrl;
           }).then(() => {

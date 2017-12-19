@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 //import { ModalDirective } from 'ngx-bootstrap/modal';
-import { SystemConstants } from "app/core/common/system.constants";
 import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
-import { DataService } from "app/core/services/data.service";
-import { NotificationService } from "app/core/services/notification.service";
-import { UtilityService } from "app/core/services/utility.service";
-import { AuthenService } from "app/core/services/authen.service";
-import { MessageContstants } from "app/core/common/message.constants";
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { NgForm } from "@angular/forms";
-import { UploadService } from "app/core/services/upload.service";
+import { SystemConstants } from '../../core/common/system.constants';
+import { DataService } from '../../core/services/data.service';
+import { NotificationService } from '../../core/services/notification.service';
+import { UtilityService } from '../../core/services/utility.service';
+import { AuthenService } from '../../core/services/authen.service';
+import { UploadService } from '../../core/services/upload.service';
+import { MessageContstants } from '../../core/common/message.constants';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -97,7 +97,7 @@ export class UserComponent implements OnInit {
       this.entity.Roles = this.myRoles;
       let fi = this.avatar.nativeElement;
       if (fi.files.length > 0) {
-        this._uploadService.postWithFile('/api/Upload/SaveImage?type=avatar', null, fi.files)
+        this._uploadService.postWithFile('avatar', null, fi.files)
           .then((imageUrl: string) => { 
             this.entity.Avatar = imageUrl;
           }).then(() => {

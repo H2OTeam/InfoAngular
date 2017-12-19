@@ -22,14 +22,7 @@ export class DataService {
     let currentUser = JSON.parse(localStorage.getItem(SystemConstants.CURRENT_USER));
     if (currentUser && currentUser.Token) {
       let headersA = new Headers({ 'Authorization': 'Bearer ' + currentUser.Token });
-      headersA.append('content-Type', 'application/json; charset=utf-8');
-      headersA.append('Accept', 'application/json');
-      headersA.append("Access-Control-Allow-Origin", "*");
-      headersA.append("Access-Control-Allow-Methods", "POST, GET, DELETE");
-      headersA.append("Access-Control-Max-Age", "3600");
-      headersA.append("Access-Control-Allow-Headers", "Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Client-Offset");
-      // headersA.append('GET', 'POST', 'OPTIONS');
-
+      headersA.append('content-Type', 'application/json; charset=utf-8'); 
       return new RequestOptions({ headers: headersA });
     }
   }
@@ -46,6 +39,7 @@ export class DataService {
   }
   put(uri: string, data?: any) {
 
+    console.log(data)
     return this._http.put(SystemConstants.BASE_API + uri, data, this.jwt()).map(this.extractData);
   }
 
@@ -95,6 +89,7 @@ export class DataService {
       this._utilityService.navigateToLogin();
     }
     else if (error.status == 400) { 
+      console.log(JSON.parse(error._body).errorMessages)
       this._notificationService.printErrorMessage(MessageContstants.BADREQUEST+". Chi tiết:"+JSON.parse(error._body).errorMessages);
     }
     else { 

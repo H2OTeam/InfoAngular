@@ -18,7 +18,7 @@ export class UploadService {
       }
     }
     var returnReponse = new Promise((resolve, reject) => {
-      this.dataService.postFile(url, formData).subscribe(
+      this.dataService.postFile("static/upload?type="+url, formData).subscribe(
         res => { 
           this.responseData = res;
           resolve(this.responseData);

@@ -4,5 +4,5 @@ export const appRoutes: Routes = [
    { path: '', redirectTo: 'home', pathMatch: 'full' },
 
    //localhost:4200/main
-   { path: 'home', loadChildren: './main/main.module#MainModule'},
+   { path: 'home', loadChildren: './main/main.module#MainModule'}, 
 ];

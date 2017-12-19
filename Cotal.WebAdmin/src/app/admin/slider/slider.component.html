@@ -128,11 +128,11 @@
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Chức năng cho vị trí</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
-              <select class="form-control" name="SlideType" [(ngModel)]="entity.slideType">
+              <select class="form-control" name="slideType" [(ngModel)]="entity.slideType">
                             <option value="">--Chọn chức cho vị trí--</option>
-                            <option *ngFor="let x of slideTypes" [value]="x.Key">{{x.value}}</option>
+                            <option *ngFor="let x of slideTypes" [value]="x.key">{{x.value}}</option>
                             </select>
-              <input type="hidden" [(ngModel)]="entity.slideType" name="SlideType" class="form-control" />
+              <input type="hidden" [(ngModel)]="entity.slideType" name="slideType" class="form-control" />
             </div>
           </div>
           <div class="form-group">

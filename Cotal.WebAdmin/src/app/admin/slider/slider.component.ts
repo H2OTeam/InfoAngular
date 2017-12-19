@@ -90,9 +90,8 @@ export class SliderComponent implements OnInit {
     if (form.valid) {
       let fi = this.image.nativeElement;
       if (fi.files.length > 0) {
-        this._uploadService.postWithFile('static/upload?type=slider', null, fi.files)
+        this._uploadService.postWithFile('slider', null, fi.files)
           .then((imageUrl: string) => {
-            console.log(imageUrl)
             this.entity.imageUrl = imageUrl;
           }).then(() => {
             this.saveData(form);
@@ -113,7 +112,7 @@ export class SliderComponent implements OnInit {
           this._notificationService.printSuccessMessage(MessageContstants.CREATED_OK_MSG);
         }, error => this._dataService.handleError(error));
     }
-    else {
+    else { 
       this._dataService.put('slider/'+this.entity.id, this.entity)
         .subscribe((response: any) => {
           this.reset();

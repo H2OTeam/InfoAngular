@@ -67,7 +67,7 @@ export class FunctionComponent implements OnInit {
     this._dataService.get('functions?filter=' + this.filter)
       .subscribe((response: any[]) => {
         this._functions = response.filter(x => x.parent == null);
-        this._functionHierachy = this.utilityService.Unflatten(response);
+        this._functionHierachy = this.utilityService.Unflatten(response); 
       }, error => this._dataService.handleError(error));
   }
 
@@ -94,9 +94,11 @@ export class FunctionComponent implements OnInit {
   }
   //Show edit form
   public showEdit(id: string) { 
-    this.loadFuntionType();
+    this.loadFuntionType(); 
     this._dataService.get('functions/' + id).subscribe((response: any) => {
       this.entity = response;
+      if(this.entity.parent===undefined||this.entity.parent===null)
+       this.entity.parent={}
       this.editFlag = true;
       this.addEditModal.show();
     }, error => this._dataService.handleError(error));
