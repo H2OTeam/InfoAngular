@@ -1,0 +1,81 @@
+<div class="page-title">
+    <div class="title_left">
+        <h3>Thông tin công ty</h3>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="row">
+    <div class="clearfix"></div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <form class="form-horizontal form-label-left input_mask" novalidate #addEditForm="ngForm" (ngSubmit)="saveChanges(addEditForm.valid)"
+                    *ngIf="entity">
+                    <input type="hidden" [(ngModel)]="entity.id" name="id" />
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Điện thoại</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="col-md-4 col-sm-6 col-xs-12 row">
+                                <input type="text" #phone="ngModel" [(ngModel)]="entity.phone" required minlength="6" maxlength="20" name="phone" class="form-control">
+                                <small [hidden]="phone.valid || (phone.pristine && !addEditForm.submitted)" class="text-danger">
+                                    Phải nhập chính xác số điện thoại
+                                </small>
+                            </div>
+                            <div class="col-md-8 col-sm-6 col-xs-12 col-md-push-1">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">Email</label>
+                                <div class="col-md-10 col-sm-10 col-xs-12">
+                                    <input type="text" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [(ngModel)]="entity.email" required
+                                        name="email" class="form-control" style="width: 93%">
+                                    <small [hidden]="email.valid || (email.pristine && !addEditForm.submitted)" class="text-danger">
+                                        Bạn phải nhập email
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Điện thoại 2</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="col-md-4 col-sm-6 col-xs-12 row">
+                                <input type="text" #other="ngModel" [(ngModel)]="entity.other" maxlength="20" name="other" class="form-control">
+                            </div>
+                            <div class="col-md-8 col-sm-6 col-xs-12 col-md-push-1">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12">website</label>
+                                <div class="col-md-10 col-sm-10 col-xs-12">
+                                    <input type="text" #website="ngModel" style="width: 93%" [(ngModel)]="entity.website"  maxlength="256" name="website"
+                                        class="form-control">
+                                    <small [hidden]="website.valid || (website.pristine && !addEditForm.submitted)" class="text-danger">
+                                        Nhập thông tin website
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Địa chỉ</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" #description="ngModel" [(ngModel)]="entity.address" name="description" class="form-control" maxlength="4000"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Giới thiệu</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <app-simple-tiny [elementId]="'page-editor-id'" [content]="entity.aboutUs" (onEditorKeyup)="keyupHandlerContentFunction($event)">
+                            </app-simple-tiny>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                            <button type="submit" class="btn btn-success" [disabled]="!addEditForm.form.valid">Cập nhật</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

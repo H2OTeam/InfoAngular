@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ModalDirective } from 'ngx-bootstrap/modal';
 import { ProviderRoutingModule } from './provider-routing.module';
 import { ProviderComponent } from './provider.component';
 import { DataService } from "../../core/services/data.service";

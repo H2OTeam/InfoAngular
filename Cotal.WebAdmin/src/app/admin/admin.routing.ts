@@ -14,7 +14,8 @@ export const adminRouting: Routes = [
             { path: 'post', loadChildren: './post/post.module#PostModule' },
             { path: 'page', loadChildren: './page/page.module#PageModule' },
             { path: 'slider', loadChildren: './slider/slider.module#SliderModule' },
-            { path: 'service', loadChildren: './provider/provider.module#ProviderModule' }
+            { path: 'service', loadChildren: './provider/provider.module#ProviderModule' },
+            { path: 'footer', loadChildren: './footer/footer.module#FooterModule' }
         ]
     }
 ];
