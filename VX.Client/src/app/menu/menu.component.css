@@ -1,0 +1,139 @@
+.navigation{
+    /* background-color: #5cbfdf;*/
+ width: 50%;
+ height: 100%;
+ position: absolute;
+ z-index: 1;
+ }
+ .navigation .item{
+     position:relative;
+ }
+ .title{
+                 width:620px;
+                 height:500px;
+                 position: relative;
+                 top: 200px;
+                 left: 80px;
+                  background: url(/assets/VXTemplate/images/bg.png) no-repeat top left;
+                 background-size: cover;
+ }
+ .user1{
+    top: -239px;
+ left: 523px;
+ }
+ .user{
+     top: -176px;
+ left: 555px;
+ }
+ .home{
+ top: -112px;
+ left: 569px;
+ }
+ .shop{
+ top: -48px;
+ left: 570px;
+ }
+ .camera{
+ top: 16px;
+ left: 555px;
+ }
+ .fav{
+ top: 80px;
+ left: 523px;
+ }
+ 
+ /*///////////////*/
+ .user1:hover > .discription  {
+   opacity:1 !important;
+   transition: bottom 0.5s ease;
+ }
+ .user:hover > .discription{
+   opacity:1 !important;
+   transition: bottom 0.5s ease;
+ }
+ .home:hover > .discription{
+  opacity:1 !important;
+   transition: bottom 0.5s ease;
+ }
+ .shop:hover > .discription{
+  opacity:1 !important;
+   transition: bottom 0.5s ease;
+ }
+ .camera:hover > .discription{
+  opacity:1 !important;
+   transition: bottom 0.5s ease;
+ }
+ .fav:hover > .discription{
+  opacity:1 !important;
+   transition: bottom 0.5s ease;
+ }
+ 
+ 
+ a.icon{
+     width:60px;
+     height:60px;
+     position:absolute;
+     top:0px;
+     left:0px;
+     cursor:pointer;
+ }
+ 
+ .navigation .item a.active{
+     background-position:0px -52px;
+ }
+ .item img.circle{
+     position:absolute;
+     top:0px;
+     left:0px;
+     width:60px;
+     height:60px;
+     opacity:0.1;
+ }
+ .item h2{
+     position:absolute;
+     width:147px;
+     height:52px;
+     color:#222;
+     font-size:18px;
+     top:0px;
+     left:52px;
+     text-indent:10px;
+     line-height:52px;
+     text-shadow:1px 1px 1px #fff;
+     text-transform:uppercase;
+ }
+ .item h2.active{
+     color:#fff;
+     text-shadow:1px 0px 1px #555;
+ }
+ .item ul{
+     list-style:none;
+     position:absolute;
+     top:60px;
+     left:25px;
+     display:none;
+ }
+ .item ul li a{
+     font-size:15px;
+     text-decoration:none;
+     letter-spacing:1.5px;
+     text-transform:uppercase;
+     color:#222;
+     padding:3px;
+     float:left;
+     clear:both;
+     width:100px;
+     text-shadow:1px 1px 1px #fff;
+ }
+ .item ul li a:hover{
+     background-color:#fff;
+     color:#444;
+     -moz-border-radius:5px;
+     -webkit-border-radius:5px;
+     border-radius:5px;
+     -moz-box-shadow:1px 1px 4px #666;
+     -webkit-box-shadow:1px 1px 4px #666;
+     box-shadow:1px 1px 4px #666;
+ }
+ 
+ 

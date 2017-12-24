@@ -1,44 +1,26 @@
-<div id="first-slider">
-  <div id="carousel-example-generic" class="carousel slide carousel-fade">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-      </ol>
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-          <!-- Item 1 -->
-          <div class="item active slide1" style="background: url(/assets/VXTemplate/images/header.jpg) no-repeat fixed;
-          background-size: cover;min-height: 700px;"> 
-             
-           </div> 
-      
-          <!-- Item 2 -->
-          <div class="item slide2" style="background: url(/assets/VXTemplate/images/header.jpg) no-repeat fixed;
-          background-size: cover;min-height: 700px;">
-           
-          </div>
-          <!-- Item 3 -->
-          <div class="item slide3" style="background: url(/assets/VXTemplate/images/header.jpg) no-repeat fixed;
-          background-size: cover;min-height: 700px;">
-             
-          </div>
-          <!-- Item 4 -->
-          <div class="item slide4" style="background: url(/assets/VXTemplate/images/header.jpg) no-repeat fixed;
-          background-size: cover;min-height: 700px;">
-            
-          </div>
-          <!-- End Item 4 -->
+<div id="container">
+    <div
+      ng2-carouselamos
+      class="slides-wrapper"
+      [items]="items"
+      [width]="1800"
+      [$prev]="prev"
+      [$next]="next"
+      [$item]="item"
+    >
+    </div>
   
+
+  <ng-template #prev>
+    <img src="assets/images/left-arrow.png" id="left" />
+  </ng-template>
+  <ng-template #next>
+    <img src="assets/images/right-arrow.png" id="right" />
+  </ng-template>
+  <ng-template #item let-item let-i="index">
+
+      <div class="items">
+        <img [src]="baseFolder + item.imageUrl">
       </div>
-      <!-- End Wrapper for slides-->
-      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          
-      </a>
-      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          
-      </a>
-  </div>
-</div>
+
+  </ng-template>
