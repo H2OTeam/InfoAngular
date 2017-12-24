@@ -50,8 +50,8 @@
             <td>
               <button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Cập nhật bài viết" *ngIf="_authenService.hasPermission('SERVICES','update')"
                 (click)="showEdit(item.id)"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-              <button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Xóa xoá" *ngIf="_authenService.hasPermission('SERVICES','delete')"
-                (click)="delete(item.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+              <!-- <button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Xóa xoá" *ngIf="_authenService.hasPermission('SERVICES','delete')"
+                (click)="delete(item.id)"><i class="fa fa-trash" aria-hidden="true"></i></button> -->
             </td>
           </tr>
 
