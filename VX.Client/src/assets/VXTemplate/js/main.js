@@ -4,7 +4,8 @@
     $(document).ready(function($){
 
         //active class
-        $(".carousel-inner .item:first-child").addClass("active");        
+		$(".carousel-inner .item:first-child").addClass("active");   
+		   
         
 		//Fixed nav on scroll
 		$(document).on('scroll',function(e){
@@ -54,7 +55,9 @@
 		//Preloader
 		$('.preloader').delay(500).fadeOut('slow');
         $('body').delay(500).css({'overflow':'visible'});
-
+		$('.carousel').carousel({
+			interval: 3000
+		  })  
 		//Portfolio container			
 		var $container = $('.portfolioContainer');
 		$container.isotope({

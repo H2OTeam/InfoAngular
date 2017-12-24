@@ -26,5 +26,13 @@ export class SlideComponent implements OnInit {
          this.items = response; 
       }, error => this._dataService.handleError(error));
     }
+    prev() {
+      let owl = $('#owl-main-slider');
+      owl.trigger('prev.owl.carousel');
+    }
+    next() {
+      let owl = $('#owl-main-slider');
+      owl.trigger('next.owl.carousel');
+    }
   }
   

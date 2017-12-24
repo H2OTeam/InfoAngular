@@ -1,26 +1,25 @@
-<div id="container">
-    <div
-      ng2-carouselamos
-      class="slides-wrapper"
-      [items]="items"
-      [width]="1800"
-      [$prev]="prev"
-      [$next]="next"
-      [$item]="item"
-    >
-    </div>
-  
-
-  <ng-template #prev>
-    <img src="assets/images/left-arrow.png" id="left" />
-  </ng-template>
-  <ng-template #next>
-    <img src="assets/images/right-arrow.png" id="right" />
-  </ng-template>
-  <ng-template #item let-item let-i="index">
-
-      <div class="items">
-        <img [src]="baseFolder + item.imageUrl">
-      </div>
-
-  </ng-template>
+<div id="first-slider">		  
+    <div id="carousel-example-generic" class="carousel slide carousel-fade">		 
+        <ol class="carousel-indicators">	 
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>	 
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>		 
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>		 
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>		 
+        </ol>		 
+        <!-- Wrapper for slides-->		 
+        <div class="carousel-inner" role="listbox">		 
+             <div  *ngFor="let it of items;let i = index; let isFirst = first"
+                  [class]="'item active slide'+(i+1)"  
+                  [class.active]="isFirst"
+                  [style.background]="'url(' + baseFolder+ it.imageUrl + ')'"
+                  [style.min-height.px]="700" 
+                  [style.background-size]="cover"></div>
+        <!-- End Wrapper for slides-->		  
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">		 
+                
+        </a>		
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">		
+                
+        </a>		
+    </div>		
+  </div>

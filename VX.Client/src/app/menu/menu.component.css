@@ -135,5 +135,9 @@
      -webkit-box-shadow:1px 1px 4px #666;
      box-shadow:1px 1px 4px #666;
  }
+ .item >.discription{ 
+    border-radius: 20px;
+    background: #b7b48e33; 
+ }
  
  
