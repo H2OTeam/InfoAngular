@@ -18,7 +18,7 @@ export class SliderComponent implements OnInit {
   }
   loadData() {
     //GetAllActive
-    this._dataService.get('/api/Slider/GetAllActive/Main')
+    this._dataService.get('slider/GetTop/6')
       .subscribe((response: any) => {
         this.sliders = response;
       }, error => this._dataService.handleError(error));

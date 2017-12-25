@@ -13,15 +13,13 @@ export class DataService {
 
   private Bearer: string = 'Bearer ';
   constructor(private _http: Http, private _router: Router, private _authenService: AuthenService,
-    private _utilityService: UtilityService) {
+    private _utilityService: UtilityService,private notificationService:NotificationService) {
 
   }
   private jwt() {
 
     let headersA = new Headers({ 'content-Type': 'application/json; charset=utf-8' });
-    headersA.append('Accept', 'application/json');
-    headersA.append('Access-Control-Allow-Origin', '*');
-    headersA.append('Access-Control-Allow-Credentials', 'true');
+    headersA.append('Accept', 'application/json'); 
     // create authorization header with jwt token
     let currentUser = JSON.parse(localStorage.getItem(SystemConstants.CURRENT_USER));
     if (currentUser && currentUser.access_token) {
@@ -63,27 +61,24 @@ export class DataService {
   }
   private extractData(res: Response) {
     //console.log(res);
-    let body = res.json();
+    var result = res.json(); 
+    if (result.isSuccess == false) { 
+      this.notificationService.printErrorMessage(result.errorMessages);
+    }
+    let body = result.dataItem;
     return body || {};
   }
   public handleError(error: any) {
     if (error.status == 401) {
       localStorage.removeItem(SystemConstants.CURRENT_USER);
-      console.log(MessageContstants.LOGIN_AGAIN_MSG)
-      // this._notificationService.printErrorMessage(MessageContstants.LOGIN_AGAIN_MSG);
-      // this._utilityService.navigateToLogin();
+      console.log(MessageContstants.LOGIN_AGAIN_MSG) 
     }
     else if (error.status == 403) {
       localStorage.removeItem(SystemConstants.CURRENT_USER);
-      console.log(MessageContstants.FORBIDDEN)
-      // this._notificationService.printErrorMessage(MessageContstants.FORBIDDEN);
-      // this._utilityService.navigateToLogin();
+      console.log(MessageContstants.FORBIDDEN) 
     }
     else {
-      let errMsg = JSON.parse(error._body).Message;
-      console.log(errMsg)
-      //this._notificationService.printErrorMessage(errMsg);
-
+      let errMsg = JSON.parse(error._body).Message;  
       return Observable.throw(errMsg);
     }
   }
