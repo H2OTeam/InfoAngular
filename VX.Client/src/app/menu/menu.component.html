@@ -161,38 +161,4 @@
                   </div>
               </div>
    
-              <script type="text/javascript" src="assets/VXTemplate/images/jquery-1.4.2.min.js"></script>
-              <script type="text/javascript" src="assets/VXTemplate/images/jquery.easing.1.3.js"></script>
-              <script type="text/javascript">
-                  $(function() {
-                      $('#nav > div').hover(
-                      function () {
-                          var $this = $(this);
-                          $this.find('img').stop().animate({
-                              'width'     :'90px',
-                              'height'    :'90px',
-                              'top'       :'-13px',
-                              'left'      :'-5px',
-                              'opacity'   :'1.0'
-                          },500,'easeOutBack',function(){
-                              $(this).parent().find('ul').fadeIn(700);
-                          });
-      
-                          $this.find('a:first,h2').addClass('active');
-                      },
-                      function () {
-                          var $this = $(this);
-                          $this.find('ul').fadeOut(500);
-                          $this.find('img').stop().animate({
-                              'width'     :'60px',
-                              'height'    :'60px',
-                              'top'       :'0px',
-                              'left'      :'0px',
-                              'opacity'   :'0.1'
-                          },2000,'easeOutBack');
-      
-                          $this.find('a:first,h2').removeClass('active');
-                      }
-                  );
-                  });
-              </script>
+              
