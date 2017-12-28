@@ -20,7 +20,7 @@ export class HomeServiceComponent implements OnInit {
     this.loadData();
   }
   loadData() {
-    this._dataService.get('/api/OutService/GetAllClient')
+    this._dataService.get('Businesses')
       .subscribe((response: any) => {
         this.services = response;
       }, error => this._dataService.handleError(error));

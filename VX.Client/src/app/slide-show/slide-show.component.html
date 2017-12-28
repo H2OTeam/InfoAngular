@@ -1,44 +1,23 @@
-<div id="first-slider">
-  <div id="carousel-example-generic" class="carousel slide carousel-fade">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-      </ol>
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-          <!-- Item 1 -->
-          <div class="item active slide1" style="background: url(/assets/VXTemplate/images/header.jpg) no-repeat fixed;
-          background-size: cover;min-height: 700px;"> 
-             
-           </div> 
-      
-          <!-- Item 2 -->
-          <div class="item slide2" style="background: url(/assets/VXTemplate/images/header.jpg) no-repeat fixed;
-          background-size: cover;min-height: 700px;">
-           
-          </div>
-          <!-- Item 3 -->
-          <div class="item slide3" style="background: url(/assets/VXTemplate/images/header.jpg) no-repeat fixed;
-          background-size: cover;min-height: 700px;">
-             
-          </div>
-          <!-- Item 4 -->
-          <div class="item slide4" style="background: url(/assets/VXTemplate/images/header.jpg) no-repeat fixed;
-          background-size: cover;min-height: 700px;">
-            
-          </div>
-          <!-- End Item 4 -->
-  
-      </div>
-      <!-- End Wrapper for slides-->
-      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          
-      </a>
-      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          
-      </a>
+<div id="first-slider">		  
+    <div id="carousel-example-generic" class="carousel slide carousel-fade">		 
+        <ol class="carousel-indicators">	 
+            <li data-target="#carousel-example-generic" 
+            *ngFor="let it of items;let i = index; let isFirst = first"
+            [class]="'active slide'+(i+1)"  
+            [class.active]="isFirst"></li>
+        </ol>		 
+        <!-- Wrapper for slides-->		 
+        <div class="carousel-inner" role="listbox">		 
+             <div  *ngFor="let it of items;let i = index; let isFirst = first"
+                  [class]="'item active slide'+(i+1)"  
+                  [class.active]="isFirst"
+                  [style.background]="'url(' + baseFolder+ it.imageUrl + ')'"
+                  [style.min-height.px]="700" 
+                  [style.background-size]="cover"></div>
+        <!-- End Wrapper for slides-->		  
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">		             
+        </a>		
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">		    
+        </a>		
+    </div>		
   </div>
-</div>

@@ -1,18 +1,19 @@
-
-
-  <!-- news Post -->
-<section id="news" >
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4" *ngFor="let item of posts">
-        <div class="news-box"> <img src="assets/VXTemplate/images/news/1.png" class="img-responsive" alt="">
-          <h3><a href="./news/news1.html">{{item.name}}</a></h3>
-          <div class="post-date-author"> <span class="pull-left"> <i class="fa fa-calendar fa-1x"></i> <a href="#">2016-10-9</a> </span> <span class="pull-right"> <i class="fa fa-user fa-1x"></i> <a href="./news/news1.html">Nilanjan banerjee</a> </span> </div>
-          <div class="news-cont"> {{item.description}}</div>
-          <div class="btn-cont"><a href="./news/news1.html" class="btn-2 btn-primary">Read More</a></div>
-        </div>
-      </div>
+<!-- news Post -->
+<section id="news">
+    <div class="text-center hgroup wow zoomInUp">
+        <h2 class="header-content">NEWS</h2>
     </div>
-  </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3  hgroup wow zoomInUp" *ngFor="let item of posts">
+                <div class="news-box"><img [src]="baseFolder+ item.imageUrl" class="img-responsive" alt="">
+                    <h3 class="news-title"><a href="#">{{item.name}}</a></h3>
+                    <div class="news-description"> {{item.description}}</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-<!-- /.news Post --> 
+<!-- /.news Post -->
+<div class="clearfix"></div>

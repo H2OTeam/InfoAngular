@@ -6,6 +6,7 @@ import { UtilityService } from '../core/services/utility.service';
 //import { AuthenService } from '../core/services/authen.service';
 //import { LoggedInUser } from '../core/domain/loggedin.user';
 import { Router } from '@angular/router';
+import { SystemConstants } from 'app/core/common/system.constants';
 @Component({
   selector: 'app-businesses-service',
   templateUrl: './service.component.html',
@@ -13,6 +14,7 @@ import { Router } from '@angular/router';
 })
 export class ServiceComponent implements OnInit {
   // Variable
+  public baseFolder: string = SystemConstants.BASE_API;
   public listService: any[];
 
   constructor(private utilityService: UtilityService, private _dataService: DataService, private router: Router) { }
@@ -25,7 +27,6 @@ export class ServiceComponent implements OnInit {
   private loadBusiness() {
     this._dataService.getNotAuth('Businesses').subscribe((response: any[]) => {
       this.listService = response;
-      console.log(response);
     }, error => this._dataService.handleError(error));
   }
 }

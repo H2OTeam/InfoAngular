@@ -1,6 +1,6 @@
 <div id="owl-main-slider" class="owl-carousel owl-theme owl-loaded owl-drag" *ngIf="sliders && sliders.length > 0">
     <div class="item" *ngFor="let it of sliders">
-        <img [src]="baseFolder+it.Image" alt="slider">
+        <img [src]="baseFolder+it.imageUrl" alt="slider">
         <div class="container-fluid">
             <div class="slider-content col-md-6 col-lg-6">
                 <div style="display:table;">
@@ -9,10 +9,10 @@
                         <a class="next owl-next" (click)="next()"><i class="fa fa-angle-right"></i></a>
                     </div>
                     <div style="display:table-cell;">
-                        <h1>{{it.Name}}</h1>
+                        <h1>{{it.name}}</h1>
                     </div>
                 </div>
-                <p>{{it.Description}}<br>
+                <p>{{it.description}}<br>
                     <!-- <a class="btn btn-success" [href]="it.Url" *ngIf="it.Url">LEARN MORE</a></p> -->
             </div>
         </div>

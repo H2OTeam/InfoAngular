@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { UrlConstants } from '../core/common/url.constants';
 import { UtilityService } from '../core/services/utility.service';
 import { Router } from '@angular/router';
+import { SystemConstants } from 'app/core/common/system.constants';
+import { forEach } from '@angular/router/src/utils/collection';
 @Component({
   selector: 'app-slide-show',
   templateUrl: './slide-show.component.html',
@@ -10,20 +12,29 @@ import { Router } from '@angular/router';
 })
 export class SlideComponent implements OnInit {
   // Variable
-  public listSlide: any[];
+  public items: any[]; 
+  public baseFolder: string = SystemConstants.BASE_API;
+
   
     constructor(private utilityService: UtilityService, private _dataService: DataService, private router: Router) { }
   
     ngOnInit() {
-      this.loadBusiness();
+      this.loadSlider(); 
     }
   
     // implement
-    private loadBusiness() {
-      // this._dataService.getNotAuth('slider/GetTop/4').subscribe((response: any[]) => {
-      //   this.listSlide = response;
-      //   console.log(response);
-      // }, error => this._dataService.handleError(error));
+    private loadSlider() {
+      this._dataService.getNotAuth('slider/GetTop/10').subscribe((response: any[]) => {
+         this.items = response; 
+      }, error => this._dataService.handleError(error));
+    }
+    prev() {
+      let owl = $('#owl-main-slider');
+      owl.trigger('prev.owl.carousel');
+    }
+    next() {
+      let owl = $('#owl-main-slider');
+      owl.trigger('next.owl.carousel');
     }
   }
   

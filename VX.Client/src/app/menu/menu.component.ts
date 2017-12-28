@@ -21,7 +21,6 @@ export class MenuComponent implements OnInit {
   private loadBusiness() {
     this._dataService.getNotAuth('Businesses').subscribe((response: any[]) => {
       this.listService = response;
-      console.log(response);
     }, error => this._dataService.handleError(error));
   }
   clickMenu() {

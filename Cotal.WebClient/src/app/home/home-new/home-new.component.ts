@@ -24,15 +24,15 @@ export class HomeNewComponent implements OnInit {
     this.loadData();
   }
   loadData() {
-    this._dataService.get('/api/Post/GetTop?top=3')
+    this._dataService.get('posts/GetTop/6')
       .subscribe((response: any) => {
         this.postTop = response;
         this.postLeft = this.postTop[0];
         this.postRight = this.postTop.filter(p => p.Id != this.postLeft.Id);
-        this.imageLeft = this.baseFolder + this.postLeft.Image;
-        this.createdDateLeft =   this.postLeft.CreatedDate;
-        this.createdByLeft =   this.postLeft.CreatedBy;
-        this.nameLeft =   this.postLeft.Name; 
+        this.imageLeft = this.baseFolder + this.postLeft.imageUrl;
+        this.createdDateLeft =   this.postLeft.createdDate;
+        this.createdByLeft =   this.postLeft.createdBy;
+        this.nameLeft =   this.postLeft.name; 
       }, error => this._dataService.handleError(error));
   }
    

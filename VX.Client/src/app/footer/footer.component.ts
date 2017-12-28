@@ -10,20 +10,19 @@ import { Router } from '@angular/router';
 })
 export class FooterComponent implements OnInit {
   // Variable
-  public listSlide: any[];
+  public Contact: any;
   
     constructor(private utilityService: UtilityService, private _dataService: DataService, private router: Router) { }
   
     ngOnInit() {
-      this.loadBusiness();
+      this.loadContacts();
     }
   
     // implement
-    private loadBusiness() {
-      // this._dataService.getNotAuth('slider/GetTop/4').subscribe((response: any[]) => {
-      //   this.listSlide = response;
-      //   console.log(response);
-      // }, error => this._dataService.handleError(error));
+    private loadContacts() {
+      this._dataService.getNotAuth('Contacts/1').subscribe((response: any[]) => {
+        this.Contact = response;
+      }, error => this._dataService.handleError(error));
     }
   }
   

@@ -1,86 +1,77 @@
 <!-- footer -->
-<footer>
-    <div class="agileits-w3layouts-footer ">
-      <div class="container-fluid">
-        <div class="col-md-4 w3-agile-grid ">
-          <h5>About Us</h5>
-          <p>ádasdasdasd</p>
-          <div class="footer-agileinfo-social ">
-            <ul>
-              <li><a href="# "><i class="fa fa-facebook "></i></a></li>
-              <li><a href="# "><i class="fa fa-twitter "></i></a></li>
-              <li><a href="# "><i class="fa fa-rss "></i></a></li>
-              <li><a href="# "><i class="fa fa-vk "></i></a></li>
-            </ul>
-          </div>
-        </div>
+<div class="footer-section">
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="foot-logo hgroup wow zoomInUp">
+                        <h2>VANXUANTRANS</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 footer-one hgroup wow zoomInUp">
 
-        <div class="col-md-4 w3-agile-grid ">
-          <h5>Address</h5>
-          <div class="w3-address ">
-            <div class="w3-address-grid ">
-              <div class="w3-address-left ">
-                <i class="fa fa-phone " aria-hidden="true "></i>
-              </div>
-              <div class="w3-address-right ">
-                <h6>Phone Number</h6>
-                <p>12324345345</p>
-              </div>
-              <div class="clearfix "> </div>
+                <h5>About US</h5>
+                <div class="about-content">
+                    <p [innerHTML]="Contact.aboutUs"></p>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                    <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                    <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                    <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                </div>
             </div>
-            <div class="w3-address-grid ">
-              <div class="w3-address-left ">
-                <i class="fa fa-envelope " aria-hidden="true "></i>
-              </div>
-              <div class="w3-address-right ">
-                <h6>Email Address</h6>
-                <p>Email :<a href="#"> rthafsd@gmail.com</a></p>
-              </div>
-              <div class="clearfix "> </div>
+            <div class="col-md-4 footer-two hgroup wow zoomInUp">
+                <h5>Contact info</h5>
+                <div class="w3-address ">
+                    <div class="w3-address-left ">
+                        <i aria-hidden="true " class="fa fa-phone "></i>
+                    </div>
+                    <div class="w3-address-right ">
+                        <h6>Phone Number</h6>
+                        <p>{{Contact.phone}}</p>
+                    </div>
+                    <div class="clearfix "> </div>
+
+                    <div class="w3-address-left ">
+                        <i aria-hidden="true " class="fa fa-envelope "></i>
+                    </div>
+                    <div class="w3-address-right ">
+                        <h6>Email Address</h6>
+                        <p>Email :<a href="emailto:{{Contact.email}}"> {{Contact.email}}</a></p>
+                    </div>
+                    <div class="clearfix "> </div>
+
+                    <div class="w3-address-left ">
+                        <i aria-hidden="true " class="fa fa-map-marker "></i>
+                    </div>
+                    <div class="w3-address-right ">
+                        <h6>Address</h6>
+                        <p> {{Contact.address}}
+                        </p>
+                    </div>
+                    <div class="clearfix "> </div>
+
+                </div>
             </div>
-            <div class="w3-address-grid ">
-              <div class="w3-address-left ">
-                <i class="fa fa-map-marker " aria-hidden="true "></i>
-              </div>
-              <div class="w3-address-right ">
-                <h6>Location</h6>
-                <p> líadasdasda
-                </p>
-              </div>
-              <div class="clearfix "> </div>
+            <div class="col-md-4 footer-four hgroup wow zoomInUp">
+                <h5>Location</h5>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.271939720646!2d106.70284831480086!3d10.79047199231196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528b499d8a64f%3A0x5d8fdbc4ffe97beb!2zMiBCSVMgTmd1eeG7hW4gVGjhu4sgTWluaCBLaGFpLCDEkGEgS2FvLCBRdeG6rW4gMSwgSOG7kyBDaMOtIE1pbmg!5e0!3m2!1svi!2s!4v1514473511103"
+                    width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
-          </div>
+            <div class="clearfix"></div>
         </div>
-        <div class="col-md-4 w3-agile-grid ">
-          <div class="contact-form">
-            <h4 class="white-w3ls">Contact <span>Form</span></h4>
-            <form action="#" method="post">
-              <div class="styled-input agile-styled-input-top">
-                <input type="text" name="Name" required="">
-                <label>Name</label>
-                <span></span>
-              </div>
-              <div class="styled-input">
-                <input type="email" name="Email" required="">
-                <label>Email</label>
-                <span></span>
-              </div>
-              <div class="styled-input">
-                <input type="text" name="Subject" required="">
-                <label>Subject</label>
-                <span></span>
-              </div>
-              <div class="styled-input">
-                <textarea name="Message" required=""></textarea>
-                <label>Message</label>
-                <span></span>
-              </div>
-              <input type="submit" value="SEND">
-            </form>
-          </div>
-        </div>
-        <div class="clearfix "> </div>
-      </div>
     </div>
-
-  </footer>
+</div>
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 ">
+                <div class="copyright-text">
+                    <p>CopyRight © 2017 VANXUANTRANS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

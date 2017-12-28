@@ -1,0 +1,15 @@
+.news-title {
+    font-size: 18px;
+}
+
+.news-description {
+    overflow: hidden;
+    height: 100px;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.header-content {
+    margin-top: 50px;
+    margin-bottom: 0px;
+}

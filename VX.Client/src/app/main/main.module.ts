@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router'
 import { UtilityService } from '../core/services/utility.service';
 import { AuthenService } from '../core/services/authen.service';
 import { NotificationService } from 'app/core/services/notification.service';
-
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
 import { PostNewsComponent } from 'app/post-news/post-news.component';
 import { ServiceComponent } from 'app/service/service.component';
@@ -18,7 +18,8 @@ import { FooterComponent } from 'app/footer/footer.component';
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(mainRoutes)
+    RouterModule.forChild(mainRoutes),
+    Ng2CarouselamosModule
   ],
   declarations: [MainComponent,
     PostNewsComponent,

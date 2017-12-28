@@ -10,6 +10,9 @@ import { UtilityService } from '../../core/services/utility.service';
 import { AuthenService } from '../../core/services/authen.service';
 import { UploadService } from '../../core/services/upload.service';
 import { MessageContstants } from '../../core/common/message.constants';
+import { LowerCasePipe } from '@angular/common/src/pipes';
+import { NGSP_UNICODE } from '@angular/compiler';
+import { Console } from '@angular/core/src/console';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -18,7 +21,6 @@ import { MessageContstants } from '../../core/common/message.constants';
 export class UserComponent implements OnInit {
   @ViewChild('modalAddEdit') public modalAddEdit: ModalDirective;
   @ViewChild('avatar') avatar;
-  public myRoles: string[] = [];
   public pageIndex: number = 1;
   public pageSize: number = 20;
   public pageDisplay: number = 10;
@@ -27,8 +29,6 @@ export class UserComponent implements OnInit {
   public users: any[];
   public entity: any;
   public baseFolder: string = SystemConstants.BASE_API;
-  public allRoles: IMultiSelectOption[] = [];
-  public roles: any[];
   public showDatepicker: boolean = false;
   @Output() dateModelChange: EventEmitter<string> = new EventEmitter();
   public dateOptions: any = {
@@ -40,66 +40,57 @@ export class UserComponent implements OnInit {
     private _notificationService: NotificationService,
     private _utilityService: UtilityService,
     public _authenService: AuthenService,
-    private _uploadService: UploadService 
+    private _uploadService: UploadService
   ) {
 
-    if (_authenService.checkAccess('USER') == false) {
-      _utilityService.navigateToLogin();
-    }
+    // if (_authenService.checkAccess('USER') == false) {
+    //   _utilityService.navigateToLogin();
+    // }
   }
   ngOnInit() {
-    this.loadRoles();
     this.loadData();
   }
   loadData() {
-    this._dataService.get('/api/User/getlistpaging?page=' + this.pageIndex + '&pageSize=' + this.pageSize + '&filter=' + this.filter)
+    this._dataService.get('users/' + this.pageIndex + '/' + this.pageSize + '?filter=' + this.filter)
       .subscribe((response: any) => {
-        this.users = response.Items;
-        this.pageIndex = response.PageIndex;
-        this.pageSize = response.PageSize;
-        this.totalRow = response.TotalRows;
+        this.users = response.data;
+        this.pageIndex = response.pageNumber;
+        this.totalRow = response.totalEntityCount;
       });
   }
-  loadRoles() {
-    this._dataService.get('/api/Role/GetAll').subscribe((response: any[]) => {
-      this.allRoles = [];
-      for (let role of response) {
-        this.allRoles.push({ id: role.Name, name: role.Description });
-      }
-    }, error => this._dataService.handleError(error));
-  }
+
   public pageChanged(event: any): void {
     this.pageIndex = event.page;
     this.loadData();
   }
   showAddModal() {
     this.entity = {};
-    this.myRoles=[];
     this.modalAddEdit.show();
-  } 
+  }
   showEditModal(id: any) {
     this.loadUserDetail(id);
     this.modalAddEdit.show();
   }
   loadUserDetail(id: any) {
-    this._dataService.get('/api/User/Details/' + id)
+    this._dataService.get('users/' + id)
       .subscribe((response: any) => {
         this.entity = response;
-        this.myRoles = [];
-        for (let role of this.entity.Roles) {
-          this.myRoles.push(role);
-        }
-        this.entity.BirthDay = moment(new Date(this.entity.BirthDay)).format('DD/MM/YYYY'); 
+        // for (let role of this.entity.Roles) {
+        //   this.myRoles.push(role);
+        // }
+        this.entity.birthDay = moment(new Date(this.entity.birthDay)).format('DD/MM/YYYY');
       });
   }
   saveChange(form: NgForm) {
     if (form.valid) {
-      this.entity.Roles = this.myRoles;
+      //  this.entity.Roles = this.myRoles;
+      if (this.entity.birthDay)
+        this.entity.birthDay = new Date(this.entity.birthDay)
       let fi = this.avatar.nativeElement;
       if (fi.files.length > 0) {
         this._uploadService.postWithFile('avatar', null, fi.files)
-          .then((imageUrl: string) => { 
-            this.entity.Avatar = imageUrl;
+          .then((imageUrl: string) => {
+            this.entity.avatar = imageUrl;
           }).then(() => {
             this.saveData(form);
           });
@@ -110,8 +101,10 @@ export class UserComponent implements OnInit {
     }
   }
   private saveData(form: NgForm) {
-    if (this.entity.Id == undefined) {
-      this._dataService.post('/api/User/Created', JSON.stringify(this.entity))
+    if (this.entity.id == undefined) {
+      this.entity.isActive = true;
+      console.log(JSON.stringify(this.entity));
+      this._dataService.post('users', this.entity)
         .subscribe((response: any) => {
           this.loadData();
           this.modalAddEdit.hide();
@@ -120,7 +113,7 @@ export class UserComponent implements OnInit {
         }, error => this._dataService.handleError(error));
     }
     else {
-      this._dataService.put('/api/User/Update', JSON.stringify(this.entity))
+      this._dataService.put('users/' + this.entity.id, this.entity)
         .subscribe((response: any) => {
           this.loadData();
           this.modalAddEdit.hide();
@@ -129,20 +122,20 @@ export class UserComponent implements OnInit {
         }, error => this._dataService.handleError(error));
     }
   }
-   deleteItem(id: any) {
+  deleteItem(id: any) {
     this._notificationService.printConfirmationDialog(MessageContstants.CONFIRM_DELETE_MSG, () => this.deleteItemConfirm(id));
   }
   deleteItemConfirm(id: any) {
-    this._dataService.delete('/api/User/Delete', 'id', id).subscribe((response: Response) => {
+    this._dataService.deleteBase('users/' + id).subscribe((response: Response) => {
       this._notificationService.printSuccessMessage(MessageContstants.DELETED_OK_MSG);
       this.loadData();
     });
   }
   public selectGender(event) {
-    this.entity.Gender = event.target.value
+    this.entity.gender = event.target.value
   }
 
   public selectedDate(value: any) {
-    this.entity.BirthDay = moment(value.end._d).format('DD/MM/YYYY');
+    this.entity.birthDay = moment(value.end._d).format('DD/MM/YYYY');
   }
 }
