@@ -13,9 +13,14 @@ import { Router } from '@angular/router';
 })
 export class MainComponent implements OnInit {
   constructor(private utilityService: UtilityService, private _dataService: DataService, private router: Router) { }
-
+  public listService: any[];
   ngOnInit() {
+    this.loadBusiness();
+  }
+  private loadBusiness() {
+    this._dataService.getNotAuth('Businesses').subscribe((response: any[]) => {
+      this.listService = response;
+    }, error => this._dataService.handleError(error));
   }
 
-  
 }

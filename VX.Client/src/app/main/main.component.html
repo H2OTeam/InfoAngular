@@ -3,46 +3,46 @@
 
 <!-- Navigation -->
 <nav class="navbar navbar-fixed-top">
-  <div class="container">    
+  <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header page-scroll">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       <a class="navbar-brand" data-scroll href="#home">
         <!-- <img height="100" src="./assets/VXTemplate/images/logo.jpg" id="logo" alt="logo top"> -->
       </a>
-       </div>
-    
+    </div>
+
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li class="active"> <a data-scroll href="#home">Home</a> </li>
-        <li> <a data-scroll href="#about-us">About Us</a> </li>        
-        <li class="dropdown"> <a  data-scroll class="dropdown-toggle" data-toggle="dropdown" href="#">Services <span class="caret"></span></a> 
+        <li> <a data-scroll href="#about-us">About Us</a> </li>
+        <li class="dropdown"> <a data-scroll class="dropdown-toggle" data-toggle="dropdown" href="#">Services <span class="caret"></span></a>
           <ul class="dropdown-menu" data-scroll href="#" style="text-align: center;">
             <li><a href="./services/service1.html">Freight</a></li>
             <li><a href="./services/service1.html">Strucking</a></li>
             <li><a href="./services/service1.html">Customs Broker</a></li>
             <li><a href="./services/service1.html">WareHouse</a></li>
           </ul>
-           
-        </li> 
+
+        </li>
         <li> <a data-scroll href="#news">News</a> </li>
         <li> <a data-scroll href="#contact">Contact</a> </li>
       </ul>
     </div>
-    <!-- /.navbar-collapse --> 
+    <!-- /.navbar-collapse -->
   </div>
-  <!-- /.container-fluid --> 
+  <!-- /.container-fluid -->
 </nav>
-<!-- /.Navigation --> 
+<!-- /.Navigation -->
 <!-- Header -->
 <header id="home">
-<div class="cycle-menu">
-  <app-menu></app-menu>
-  <app-slide-show></app-slide-show>
-</div>
+  <div class="cycle-menu">
+    <app-menu [listService]="listService"></app-menu>
+    <app-slide-show></app-slide-show>
+  </div>
 </header>
-<!-- /.Header --> 
-<app-businesses-service></app-businesses-service>
+<!-- /.Header -->
+<app-businesses-service [listService]="listService"></app-businesses-service>
 <app-post-news></app-post-news>
 <app-footer></app-footer>

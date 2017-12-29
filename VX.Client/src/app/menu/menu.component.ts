@@ -1,5 +1,5 @@
 import { DataService } from './../core/services/data.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UrlConstants } from '../core/common/url.constants';
 import { UtilityService } from '../core/services/utility.service';
 import { Router } from '@angular/router';
@@ -10,20 +10,11 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   // Variable
-  public listService: any[];
+  @Input() listService: any[];
 
   constructor(private utilityService: UtilityService, private _dataService: DataService, private router: Router) { }
 
   ngOnInit() {
-    this.loadBusiness();
   }
 
-  private loadBusiness() {
-    this._dataService.getNotAuth('Businesses').subscribe((response: any[]) => {
-      this.listService = response;
-    }, error => this._dataService.handleError(error));
-  }
-  clickMenu() {
-    $("#menu").toggleClass("active");
-  }
 }
