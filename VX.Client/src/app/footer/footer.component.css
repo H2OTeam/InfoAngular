@@ -129,3 +129,8 @@ i {
     text-align: justify;
     font-size: 14px;
 }
+
+.w3-address p {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
