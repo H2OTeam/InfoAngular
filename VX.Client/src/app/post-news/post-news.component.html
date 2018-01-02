@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-3  hgroup wow zoomInUp" *ngFor="let item of posts">
                 <div class="news-box"><img [src]="baseFolder+ item.imageUrl" class="img-responsive" alt="">
-                    <h3 class="news-title"><a href="#">{{item.name}}</a></h3>
+                    <h3 class="news-title"><a href="/#/content/{{item.id}}">{{item.name}}</a></h3>
                     <div class="news-description"> {{item.description}}</div>
 
                 </div>

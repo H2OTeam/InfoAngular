@@ -13,7 +13,7 @@ import { PostNewsComponent } from 'app/post-news/post-news.component';
 import { ServiceComponent } from 'app/service/service.component';
 import { MenuComponent } from 'app/menu/menu.component';
 import { SlideComponent } from 'app/slide-show/slide-show.component';
-import { FooterComponent } from 'app/footer/footer.component';
+// import { FooterComponent } from 'app/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -26,7 +26,7 @@ import { FooterComponent } from 'app/footer/footer.component';
     ServiceComponent,
     MenuComponent,
     SlideComponent,
-    FooterComponent
+    //FooterComponent
   ],
   providers: [UtilityService, AuthenService, NotificationService, DataService],
   exports: [  
@@ -34,7 +34,7 @@ import { FooterComponent } from 'app/footer/footer.component';
     ServiceComponent,
     MenuComponent,
     SlideComponent,
-    FooterComponent
+   // FooterComponent
   ],
   entryComponents: [ ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

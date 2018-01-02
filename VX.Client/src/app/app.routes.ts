@@ -5,4 +5,6 @@ export const appRoutes: Routes = [
 
    //localhost:4200/main
    { path: 'home', loadChildren: './main/main.module#MainModule'}, 
+   
+   { path: 'content/:id', loadChildren: './news-detail/news-detail.module#NewsDetailModule'}, 
 ];
