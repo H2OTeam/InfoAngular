@@ -16,9 +16,8 @@ export class SliderComponent implements OnInit {
   ngOnInit() {
     this.loadData();
   }
-  loadData() {
-    //GetAllActive
-    this._dataService.get('slider/GetTop/6')
+  loadData() { 
+    this._dataService.get('slider/GetByOrder/0')
       .subscribe((response: any) => {
         this.sliders = response;
       }, error => this._dataService.handleError(error));

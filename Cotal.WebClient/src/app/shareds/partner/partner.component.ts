@@ -17,12 +17,10 @@ export class PartnerComponent implements OnInit {
   ngOnInit() {
     this.loadData(); 
   }
-  loadData() {
-    //GetAllActive
-    this._dataService.get('/api/Slider/GetAllActive/Partner')
+  loadData() { 
+    this._dataService.get('slider/GetByOrder/1')
       .subscribe((response: any) => {
-        this.partners = response; 
-        console.log(this.partners)
+        this.partners = response;  
       }, error => this._dataService.handleError(error));
   }
   prev() {
