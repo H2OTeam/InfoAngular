@@ -28,7 +28,7 @@ export class HomeNewComponent implements OnInit {
       .subscribe((response: any) => {
         this.postTop = response;
         this.postLeft = this.postTop[0];
-        this.postRight = this.postTop.filter(p => p.Id != this.postLeft.Id);
+        this.postRight = this.postTop.filter(p => p.id != this.postLeft.id);
         this.imageLeft = this.baseFolder + this.postLeft.imageUrl;
         this.createdDateLeft =   this.postLeft.createdDate;
         this.createdByLeft =   this.postLeft.createdBy;

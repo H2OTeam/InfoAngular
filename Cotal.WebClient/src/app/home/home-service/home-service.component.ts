@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild, Input } from '@angular/core';
 import { SystemConstants } from "../../core/common/system.constants";
 import { DataService } from "../../core/services/data.service";
 import { ModalDirective } from "ngx-bootstrap";
@@ -10,24 +10,17 @@ import { ModalDirective } from "ngx-bootstrap";
 })
 export class HomeServiceComponent implements OnInit {
   @ViewChild('detailShownModal') public detailShownModal: ModalDirective;
-  public isModalShown: boolean = false;
-  public services: any[];
+  public isModalShown: boolean = false; 
   public entity: any = {};
   public baseFolder: string = SystemConstants.BASE_API;
 
+  @Input() listServices: any[];
   constructor(private _dataService: DataService) { }
   ngOnInit() {
-    this.loadData();
-  }
-  loadData() {
-    this._dataService.get('Businesses')
-      .subscribe((response: any) => {
-        this.services = response;
-      }, error => this._dataService.handleError(error));
-  }
+      
+  } 
   public showModal(id: any): void {
-    this.entity = this.services.filter(s => s.Id == id)[0];
-    console.log(this.entity)
+    this.entity = this.listServices.filter(s => s.id == id)[0]; 
     this.detailShownModal.show();
   }
 

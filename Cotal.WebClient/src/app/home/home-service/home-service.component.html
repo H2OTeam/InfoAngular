@@ -1,12 +1,12 @@
 <div class="container-fluid block-content">
     <div class="text-center hgroup wow zoomInUp">
-        <h1>DỊCH VỤ</h1>
+        <h1>OUT SERVICES</h1>
         <!-- <h2>We have wide network of offices in all major locations to help you with <br> the services we offer</h2> -->
     </div>
     <div class="row our-services">
 
-        <div *ngFor="let it of services; let i = index;" class="col-sm-6 col-md-4 col-lg-4 wow {{i%3===0 ? 'zoomInRight' : i%3===0 ?'zoomInUp':'zoomInLeft'}}">
-            <a (click)="showModal(it.Id)">
+        <div *ngFor="let it of listServices; let i = index;" class="col-sm-6 col-md-4 col-lg-4 wow {{i%3===0 ? 'zoomInRight' : i%3===0 ?'zoomInUp':'zoomInLeft'}}">
+            <a (click)="showModal(it.id)">
                 <span><i class="glyph-icon {{it.iconCss}}"></i></span>
                 <h4>{{it.name}}</h4>
                 <p>{{it.description}}</p>
@@ -14,8 +14,7 @@
         </div>
     </div>
 </div>
-<div bsModal #detailShownModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-    aria-hidden="true">  
+<div bsModal #detailShownModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -26,10 +25,10 @@
             </div>
             <div class="modal-body">
                 <h1 class="text-center italic wow zoomIn" data-wow-delay="0.3s">{{entity.description}}</h1>
-                <img [src]="entity.Image" class="full-width wow zoomIn" data-wow-delay="0.3s" [alt]="entity.Name">
+                <img [src]="baseFolder+entity.imageUrl" class="full-width wow zoomIn" data-wow-delay="0.3s" [alt]="entity.Name">
                 <div class="row">
                     {{entity.content}}
-                </div> 
+                </div>
             </div>
         </div>
     </div>
