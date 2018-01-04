@@ -3,56 +3,60 @@
 
 <!-- Navigation -->
 <nav class="navbar navbar-fixed-top">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header page-scroll">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" data-scroll href="#home">
-        <!-- <img height="100" src="./assets/VXTemplate/images/logo.jpg" id="logo" alt="logo top"> -->
-      </a>
-    </div>
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <a class="navbar-brand" data-scroll href="#home">
+                <!-- <img height="100" src="./assets/VXTemplate/images/logo.jpg" id="logo" alt="logo top"> -->
+            </a>
+        </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse menu-news-detail" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"> <a data-scroll href="#home">Home</a> </li>
-        <li> <a data-scroll href="#about-us">About Us</a> </li>
-        <li class="dropdown"> <a data-scroll class="dropdown-toggle" data-toggle="dropdown" href="#">Services <span class="caret"></span></a>
-          <ul class="dropdown-menu" data-scroll href="#" style="text-align: center;">
-            <li><a href="./services/service1.html">Freight</a></li>
-            <li><a href="./services/service1.html">Strucking</a></li>
-            <li><a href="./services/service1.html">Customs Broker</a></li>
-            <li><a href="./services/service1.html">WareHouse</a></li>
-          </ul>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse menu-news-detail" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"> <a data-scroll href="#home">Home</a> </li>
+                <li> <a data-scroll href="#about-us">About Us</a> </li>
+                <li class="dropdown"> <a data-scroll class="dropdown-toggle" data-toggle="dropdown" href="#">Services <span class="caret"></span></a>
+                    <ul class="dropdown-menu" data-scroll href="#" style="text-align: center;">
+                        <li><a href="./services/service1.html">Freight</a></li>
+                        <li><a href="./services/service1.html">Strucking</a></li>
+                        <li><a href="./services/service1.html">Customs Broker</a></li>
+                        <li><a href="./services/service1.html">WareHouse</a></li>
+                    </ul>
 
-        </li>
-        <li> <a data-scroll href="#news">News</a> </li>
-        <li> <a data-scroll href="#contact">Contact</a> </li>
-      </ul>
+                </li>
+                <li> <a data-scroll href="#news">News</a> </li>
+                <li> <a data-scroll href="#contact">Contact</a> </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container-fluid -->
+    <!-- /.container-fluid -->
 </nav>
 <!-- /.Navigation -->
 <!-- Header -->
-  <div class="cycle-menu">
+<div class="cycle-menu">
     <app-menu [listService]="listService"></app-menu>
-  </div>
+</div>
 
 <!-- news Post -->
 
-  <div class="container">
+<div class="container">
     <div class="row">
-      <div class="col-lg-12  hgroup wow zoomInUp" >
-        <div class="news-box"><img style="width: 100%;" ng-cloak [src]="baseFolder+ item_news_detail.imageUrl" class="img-responsive" alt="">
-          <h3 class="news-title"><a href="#" ng-cloak>{{item_news_detail.name}}</a></h3>
-          <div class="news-description" ng-cloak [innerHTML]="item_news_detail.content"></div>
+        <div class="col-lg-12  hgroup wow zoomInUp">
+            <div class="news-box">
+                <div class="fix-img ">
+                    <img style="width: 100%;" ng-cloak [src]="baseFolder+ item_news_detail.imageUrl" class="img-responsive" alt="">
+                </div>
 
+                <h3 class="news-title"><a href="#" ng-cloak>{{item_news_detail.name}}</a></h3>
+                <div class="news-description" ng-cloak [innerHTML]="item_news_detail.content"></div>
+
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 <!-- /.news Post -->
 <section id="news">
     <div class="text-center hgroup wow zoomInUp" style="visibility: visible; animation-name: zoomInUp;">
@@ -62,27 +66,31 @@
         <div class="row">
             <!--bindings={
   "ng-reflect-ng-for-of": "[object Object],[object Object"
-}--><div class="col-lg-3  hgroup wow zoomInUp" style="visibility: visible; animation-name: zoomInUp;">
+}-->
+            <div class="col-lg-3  hgroup wow zoomInUp" style="visibility: visible; animation-name: zoomInUp;">
                 <div class="news-box"><img alt="" class="img-responsive" src="http://core.vanxuantrans.com/api/v1/UploadedFiles/NEWs/1.png">
                     <h3 class="news-title"><a href="#">“Thailand” National Gateway to ASEAN</a></h3>
                     <div class="news-description"> We are pleased to introduce Freight Rangers Co.,Ltd. as a reliable and reputable company in total logistics. Our policy is simply to provide timely, trustworthy and cost-compromised total logistics to all our customers.
 
-</div>
+                    </div>
 
                 </div>
-            </div><div class="col-lg-3  hgroup wow zoomInUp" style="visibility: visible; animation-name: zoomInUp;">
+            </div>
+            <div class="col-lg-3  hgroup wow zoomInUp" style="visibility: visible; animation-name: zoomInUp;">
                 <div class="news-box"><img alt="" class="img-responsive" src="http://core.vanxuantrans.com/api/v1/UploadedFiles/NEWs/1.png">
                     <h3 class="news-title"><a href="#">We are pleased to introduce Freight Rangers Co.,Ltd. </a></h3>
                     <div class="news-description"> We are pleased to introduce Freight Rangers Co.,Ltd. as a reliable and reputable company in total logistics. Our policy is simply to provide timely, trustworthy and cost-compromised total logistics to all our customers.</div>
 
                 </div>
-            </div><div class="col-lg-3  hgroup wow zoomInUp" style="visibility: visible; animation-name: zoomInUp;">
+            </div>
+            <div class="col-lg-3  hgroup wow zoomInUp" style="visibility: visible; animation-name: zoomInUp;">
                 <div class="news-box"><img alt="" class="img-responsive" src="http://core.vanxuantrans.com/api/v1/UploadedFiles/NEWs/2.png">
                     <h3 class="news-title"><a href="#">Nhiều tiềm năng cho ngành logistics Việt Nam</a></h3>
                     <div class="news-description"> Với việc Việt Nam gia nhập TPP, ngành logistics Việt Nam có nhiều cơ hội phát triển và tham gia sâu hơn vào những trung tâm giao dịch vận tải thế giới...</div>
 
                 </div>
-            </div><div class="col-lg-3  hgroup wow zoomInUp" style="visibility: visible; animation-name: zoomInUp;">
+            </div>
+            <div class="col-lg-3  hgroup wow zoomInUp" style="visibility: visible; animation-name: zoomInUp;">
                 <div class="news-box"><img alt="" class="img-responsive" src="http://core.vanxuantrans.com/api/v1/UploadedFiles/NEWs/3.png">
                     <h3 class="news-title"><a href="#">Cơ hội kết nối giữa các doanh nghiệp logistics Việt Nam và Sri Lanka</a></h3>
                     <div class="news-description"> (Vietnam Logistics Review) Ngày 30.11, Đại sứ quán Sri Lanka tại Việt Nam đã tổ chức hội nghị “Sri Lanka - vùng đất của các cơ hội kết nối”.</div>

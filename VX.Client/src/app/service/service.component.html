@@ -1,25 +1,3 @@
-<!-- banner-bottom -->
-<!-- <div class="clearfix"></div>
-<div class="services" id="services">
-  <div class="container">
-    <div class="row">
-      <div class="servicegrids">
-        <div class="servicetopgrids">
-          <div class="col-md-4 servicegrid1" *ngFor="let item of listService">
-
-            <h4>{{item.name}}</h4>
-            <img src="../assets/images/bg4.jpg" alt=" " class="img-responsive" />
-            <p innerHTML="{{item.content}}"></p>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- //banner-bottom -->
-
-
 <section id="services">
     <div class="header-services text-center hgroup wow zoomInUp">
         <h2 class="header-content">SERVICES</h2>
@@ -27,13 +5,17 @@
     <div class="container">
         <div class="row mar-top-30 ">
             <div class="col-sm-4  hgroup wow zoomInUp" *ngFor="let item of listService;">
+
                 <div class="box text-center">
                     <div class="incon-box">
                         <div [class]="'box-icon '+item.iconCss+'-service'"></div>
                     </div>
-                    <h3 class="box-tittle">{{item.name}}</h3>
+                    <h3 class="box-tittle">
+                        <a href="/#/services/{{item.id}}">{{item.name}}</a>
+                    </h3>
                     <p class="box-text moreservice" innerHTML="{{item.content}}"></p>
                 </div>
+
             </div>
         </div>
     </div>

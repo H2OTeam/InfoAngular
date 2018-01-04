@@ -1,0 +1,61 @@
+<!-- Preloader -->
+<!--<div class="preloader"></div>-->
+
+<!-- Navigation -->
+<nav class="navbar navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <a class="navbar-brand" data-scroll href="#home">
+                <!-- <img height="100" src="./assets/VXTemplate/images/logo.jpg" id="logo" alt="logo top"> -->
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse menu-news-detail" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"> <a data-scroll href="#home">Home</a> </li>
+                <li> <a data-scroll href="#about-us">About Us</a> </li>
+                <li class="dropdown"> <a data-scroll class="dropdown-toggle" data-toggle="dropdown" href="#">Services <span class="caret"></span></a>
+                    <ul class="dropdown-menu" data-scroll href="#" style="text-align: center;">
+                        <li><a href="./services/service1.html">Freight</a></li>
+                        <li><a href="./services/service1.html">Strucking</a></li>
+                        <li><a href="./services/service1.html">Customs Broker</a></li>
+                        <li><a href="./services/service1.html">WareHouse</a></li>
+                    </ul>
+
+                </li>
+                <li> <a data-scroll href="#news">News</a> </li>
+                <li> <a data-scroll href="#contact">Contact</a> </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<!-- /.Navigation -->
+<!-- Header -->
+<div class="cycle-menu">
+    <app-menu [listService]="listService"></app-menu>
+</div>
+
+<!-- news Post -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12  hgroup wow zoomInUp">
+            <div class="news-box">
+                <div class="fix-img">
+                    <img style="width: 100%;" ng-cloak [src]="baseFolder+ item_services_detail.imageUrl" class="img-responsive" alt="">
+                </div>
+                <h3 class="news-title"><a href="#" ng-cloak>{{item_services_detail.name}}</a></h3>
+                <div class="news-description" ng-cloak [innerHTML]="item_services_detail.content"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<app-footer></app-footer>
