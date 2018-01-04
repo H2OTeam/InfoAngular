@@ -1,0 +1,9 @@
+.menu-news-detail{
+    background-color:white;
+}
+.menu-news-detail a{
+        color: #777;
+}
+.clearfix{display: inline-block;
+margin-bottom: 30px;
+}
