@@ -26,8 +26,6 @@
             "../node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
             "../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css",
             "./assets/css/color.css",
-            "./assets/loader/css/loader.css",
-            "./assets/isotope/isotope.css",
             "styles.css"
         ],
         "scripts": [
@@ -39,17 +37,7 @@
             "../node_modules/jquery-waypoints/waypoints.min.js",
             "./assets/js/jquery.easypiechart.min.js",
 
-            "./assets/loader/js/classie.js",
-            "./assets/loader/js/pathLoader.js",
-            "./assets/loader/js/main.js",
-            "./assets/js/classie.js",
-
-            "./assets/isotope/jquery.isotope.min.js",
-
             "../node_modules/owl.carousel/dist/owl.carousel.min.js",
-
-            "./assets/isotope/jquery.isotope.min.js",
-
             "./assets/js/jquery.smooth-scroll.js",
             "./assets/js/wow.min.js",
             "../node_modules/jquery-placeholder/jquery.placeholder.js",

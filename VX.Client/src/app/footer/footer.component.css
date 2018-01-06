@@ -110,6 +110,10 @@ i {
     transition: all .25s;
 }
 
+.social {
+    font-size: 30px;
+}
+
 #social-em:hover {
     color: #f39c12;
     transition: all .25s;

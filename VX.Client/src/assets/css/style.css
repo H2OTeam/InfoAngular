@@ -4119,9 +4119,10 @@ p {
     background: transparent;
     text-transform: uppercase;
     font-family: 'Lato', sans-serif;
-    font-weight: 600;
-    /* color: #fff; */
+    font-weight: 200;
+    color: #fff;
     letter-spacing: 1px;
+    font-size: 15px;
 }
 
 .navbar-scroll {

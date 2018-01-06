@@ -2,6 +2,10 @@
     display: none;
 }
 
+.navbar-nav>li>.dropdown-menu a {
+    color: #333;
+}
+
 .navbar-scroll img {
     display: block;
     margin-top: -10px;
