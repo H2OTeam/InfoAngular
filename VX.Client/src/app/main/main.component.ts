@@ -22,5 +22,4 @@ export class MainComponent implements OnInit {
       this.listService = response;
     }, error => this._dataService.handleError(error));
   }
-
 }

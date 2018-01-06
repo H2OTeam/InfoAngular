@@ -25,7 +25,7 @@
             </div>
             <div class="modal-body">
                 <h1 class="text-center italic wow zoomIn" data-wow-delay="0.3s">{{entity.description}}</h1>
-                <img [src]="baseFolder+entity.imageUrl" class="full-width wow zoomIn" data-wow-delay="0.3s" [alt]="entity.Name">
+                <img *ngIf="entity.imageUrl" [src]="baseFolder+entity.imageUrl" class="full-width wow zoomIn" data-wow-delay="0.3s" [alt]="entity.Name">
                 <div class="row">
                     {{entity.content}}
                 </div>

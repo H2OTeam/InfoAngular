@@ -15,3 +15,13 @@
     overflow: hidden;
     max-height: 400px;
 }
+
+.navbar-brand img {
+    display: none;
+}
+
+.navbar-scroll img {
+    display: block;
+    margin-top: -17px;
+    height: 66px;
+}

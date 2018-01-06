@@ -1,5 +1,5 @@
 .ua-ie-9 .loaded{
-	 
+	display:none !important;
 }
 .ua-ie-9 .tags li a.hvr-rectangle-in{
 	background-color: #313131 !important;
@@ -96,7 +96,8 @@
 	min-height: 400px;
 	max-width: 1000px;
 	width: 100%;
-	border-radius: 8px; 
+	border-radius: 8px;
+	background: #fff url(../img/browser.png) no-repeat 50% 0;
 	background-size: 100%;
 	color: #d3d3d3;
 }

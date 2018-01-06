@@ -53,37 +53,37 @@
 
 /*///////////////*/
 
-.Warehouse .icon {
+.Warehouse .icon_menu {
     background: url("/assets/VXTemplate/images/1.png");
     background-size: contain;
 }
 
-.tranpost .icon {
+.tranpost .icon_menu {
     background: url("/assets/VXTemplate/images/6.png");
     background-size: contain;
 }
 
-.SeaAirFreight .icon {
+.SeaAirFreight .icon_menu {
     background: url("/assets/VXTemplate/images/5.png");
     background-size: contain;
 }
 
-.Custom .icon {
+.Custom .icon_menu {
     background: url("/assets/VXTemplate/images/4.png");
     background-size: contain;
 }
 
-.Transit .icon {
+.Transit .icon_menu {
     background: url("/assets/VXTemplate/images/2.png");
     background-size: contain;
 }
 
-.Door2 .icon {
+.Door2 .icon_menu {
     background: url("/assets/VXTemplate/images/3.png");
     background-size: contain;
 }
 
-a.icon {
+a.icon_menu {
     width: 60px;
     height: 60px;
     position: absolute;
@@ -92,7 +92,8 @@ a.icon {
     cursor: pointer;
 }
 
-.navigation .item a.active {
+.navigation .item a .icon_menu,
+.active {
     background-position: 0px -52px;
 }
 

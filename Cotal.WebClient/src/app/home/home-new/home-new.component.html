@@ -4,12 +4,12 @@
             <h1>LATEST NEWS</h1>
             <h2>READ our latest blog news</h2>
         </div>
-        <a class="btn btn-danger pull-right read-all-news wow fadeInRight" data-wow-delay="0.3s" href="09_blog.html">READ ALL NEWS</a>
+        <a class="btn btn-danger pull-right read-all-news wow fadeInRight" data-wow-delay="0.3s" href="#">READ ALL NEWS</a>
         <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-6 one-news wow fadeInLeft" data-wow-delay="0.3s">
                 <div [ngStyle]="{'background': '#eee url('+imageLeft + ') no-repeat 0 0'}">
                     <div>
-                        <a href="11_blog-details.html">
+                        <a href="#">
                             <h3> {{nameLeft}}</h3>
                         </a>
                         <small class="news-author">BY {{createdByLeft}}</small>
@@ -21,11 +21,11 @@
             <div class="col-sm-6 col-md-6 col-lg-6 two-news wow fadeInRight" data-wow-delay="0.3s">
                 <div *ngFor="let it of postRight; let i = index" class="news-item row">
                     <div class="col-sm-6 col-md-6 col-lg-6">
-                        <div [ngStyle]="{'background': '#eee url(' + baseFolder + it.imageUrl + ') no-repeat 0 0'}"></div>
+                        <div *ngIf="it.imageUrl" [ngStyle]="{'background': '#eee url(' + baseFolder + it.imageUrl + ') no-repeat 0 0'}"></div>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6">
                         <div>
-                            <a href="11_blog-details.html">
+                            <a href="#">
                                 <h3> {{it.name}}</h3>
                             </a>
                             <small class="news-author">BY {{it.createdBy}}</small>

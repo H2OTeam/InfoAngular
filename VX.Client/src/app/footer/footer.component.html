@@ -1,6 +1,6 @@
 <!-- footer -->
 <div class="footer-section">
-    <div class="footer">
+    <div class="footer" *ngIf="isload">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -19,6 +19,7 @@
                     <a href="https://www.facebook.com/ngoc.nguyenxuan.73?fref=ts/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
                     <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
                     <a href="mailto:{{Contact.email}}"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                    <a href="skype:ngoc_xv?chat" title="Chat width us"><i id="social-sk" class="fa fa-skype fa-3x social" style="color: lightskyblue"></i></a>
                 </div>
             </div>
             <div class="col-md-4 footer-two hgroup wow zoomInUp">

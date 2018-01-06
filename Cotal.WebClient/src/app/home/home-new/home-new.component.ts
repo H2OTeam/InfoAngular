@@ -29,7 +29,7 @@ export class HomeNewComponent implements OnInit {
         this.postTop = response;
         this.postLeft = this.postTop[0];
         this.postRight = this.postTop.filter(p => p.id != this.postLeft.id);
-        this.imageLeft = this.baseFolder + this.postLeft.imageUrl;
+        this.imageLeft = this.baseFolder + this.postLeft.imageUrl; 
         this.createdDateLeft =   this.postLeft.createdDate;
         this.createdByLeft =   this.postLeft.createdBy;
         this.nameLeft =   this.postLeft.name; 

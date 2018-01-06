@@ -1,0 +1,13 @@
+.navbar-brand img {
+    display: none;
+}
+
+.navbar-scroll img {
+    display: block;
+    margin-top: -10px;
+    height: 60px;
+}
+
+.navbar-fixed-top .navbar-brand {
+    margin: 0px;
+}
