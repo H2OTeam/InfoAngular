@@ -15,17 +15,17 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"> <a data-scroll href="/#/">Home</a> </li>
+                <li class="active"> <a href="/#/">Home</a> </li>
                 <li> <a data-scroll href="/#about-us">About Us</a> </li>
                 <li class="dropdown">
-                    <a data-scroll class="dropdown-toggle" data-toggle="dropdown">Services <span class="caret"></span>
+                    <a class="dropdown-toggle" data-toggle="dropdown">Services <span class="caret"></span>
                             </a>
                     <ul class="dropdown-menu" data-scroll href="#" style="text-align: left;">
                         <li *ngFor="let it of listService"><a href="/#/services/{{it.id}}">{{it.name}}</a></li>
                     </ul>
 
                 </li>
-                <li> <a data-scroll href="/#news">News</a> </li>
+                <li> <a href="/#/#news">News</a> </li>
                 <li> <a data-scroll href="/#contact">Contact</a> </li>
             </ul>
         </div>

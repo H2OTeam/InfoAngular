@@ -13,6 +13,7 @@ export class NewsDetailComponent implements OnInit {
   constructor(private utilityService: UtilityService, private _dataService: DataService, private router: Router, private activatedRoute: ActivatedRoute) { }
   public item_news_detail: any;
   private sub: any;
+  public isload = false;
   public baseFolder: string = SystemConstants.BASE_API;
   ngOnInit() {
     this.sub = this.activatedRoute.params.subscribe((params: Params) => {
@@ -24,8 +25,9 @@ export class NewsDetailComponent implements OnInit {
     //this.loadBusiness();
   }
   private Get_News_Detail(id) {
-    this._dataService.getNotAuth('posts/'+id).subscribe((response: any[]) => {
+    this._dataService.getNotAuth('posts/' + id).subscribe((response: any[]) => {
       this.item_news_detail = response;
+      this.isload = true;
     }, error => this._dataService.handleError(error));
   }
 

@@ -25,3 +25,12 @@
     margin-top: -17px;
     height: 66px;
 }
+
+.navbar-fixed-top {
+    background-color: white !important;
+}
+
+.navbar-nav>li>a {
+    color: #777;
+    background: #fff;
+}
